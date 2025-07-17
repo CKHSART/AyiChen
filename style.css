@@ -1,0 +1,176 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 10%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+html {
+    font-family: sans-serif;
+    background-color: rgb(249, 223, 206);
+
+}
+
+body {
+    -webkit-overflow-scrolling: touch;
+    text-align: center;
+}
+
+ul {
+    background-color: transparent;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+}
+
+li {
+    float: left;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+.flexbox {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 10px;
+}
+
+button {
+    display: block;
+    border: none;
+    padding: 10px;
+    margin: 0;
+    font-family: inherit;
+    background-color: transparent;
+    position: relative;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+button::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 0.5px;
+    background: black;
+    transition: all 0.3s ease;
+}
+
+button:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/*button::before {
+  content: "這是說明文字";
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #eee;
+  color: #333;
+  font-size: 12px;
+  padding: 4px 8px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: max-content;
+}
+button:hover::before {
+  opacity: 1;
+}*/
+.fadeIn {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.cactusItem {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    position: relative;
+}
+
+.cactusItem:hover .intro {
+    opacity: 1;
+}
+.cactusItem:hover .imageWrapper {
+    opacity: 0.8;
+}
+
+
+
+.intro {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    box-sizing: border-box;
+    color: black;
+    font-size: 14px;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+.intro pre{
+    display:block;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.imageWrapper{
+    background-color: transparent;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 1/1;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.imageWrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 填滿容器，必要時裁切 */
+    object-position: center;
+    /* 裁切時保持中心位置 */
+    display: block;
+    border-radius: 8px;
+}
+
+

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+<!--CK77th郭醫德製作-->
+<head>
+    <title>多肉選擇小幫手</title>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/earlyaccess/cwtexming.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="js.js"></script>
+</head>
+<body>
+    <h1>多肉選擇小幫手</h1>
+    <div class="fadeIn" style="height:0.5px;background-color: black;width: 90%;left:5%;position:absolute;"></div>
+    <h1 id="key" hidden></h1>
+    <div class="flexbox fadeIn">
+        <ul id="0">
+            <li><button onclick="change(1)">平地</button></li>
+            <li><button onclick="change(2)">山邊</button></li>
+        </ul>
+        <ul id="1" hidden>
+            <li><button onclick="change(1)">室內</button></li>
+            <li><button onclick="change(2)">室外</button></li>
+        </ul>
+        <!--第二層-->
+        <ul id="21" hidden>
+            <li><button onclick="change(1)">窗台</button></li>
+            <li><button onclick="change(2)">無窗</button></li>
+        </ul>
+        <ul id="22" hidden>
+            <li><button onclick="change(3)">陽台</button></li>
+            <li><button onclick="change(4)">露臺</button></li>
+        </ul>
+        <!--第三層-->
+        <ul id="3" hidden>
+            <li><button onclick="change(1)">東</button></li>
+            <li><button onclick="change(2)">西</button></li>
+            <li><button onclick="change(3)">南</button></li>
+            <li><button onclick="change(4)">北</button></li>
+        </ul>
+        <!--第四層-->
+        <ul id="4" hidden>
+            <li><button onclick="change(1)">盆身深(&gt12cm)</button></li>
+            <li><button onclick="change(2)">盆身淺(&lt12cm)</button></li>
+        </ul>
+        <!--第四層-->
+        <ul id="5" hidden>
+            <li><button onclick="change(1)">盆口寬(&gt100㎠)</button></li>
+            <li><button onclick="change(2)">盆口窄(&lt100㎠)</button></li>
+        </ul>
+    </div>
+    <div id="contbtn" class=" flexbox fadeIn" style="display:none;">
+        <button id="prevbtn" onclick="prev()">上一步</button>
+        <button id="resetbtn" onclick="reset()">重填</button>
+    </div>
+    <div id="ansbox" class="fadeIn" style="display:none;position:relative;">
+        <p id="showplace"></p>
+        <p id="show" hidden></p>
+        <p id="showpot" hidden></p>
+        <p id="show2pot"></p>
+        <h2>適合種植的多肉品種：</h2>
+    </div>
+    <div id="cactusesbox" class="grid-container fadeIn" style="display:none;">
+        <!--底下的是元素範例
+        <div class="cactusItem">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTkGaalF0pRoycFw6Bh14Hr4-DsYYjNgBY8Q&s"
+                alt="士童照">
+            <div class="intro">
+                <h3>士童 <i>Frailea Castenea</i>
+                </h3>
+                <div style="height:0.5px;background-color: black;width: 90%;left:5%;position:absolute;"></div>
+                <pre>是一棵士童</pre>
+            </div>
+        </div>-->
+    </div>
+    <script>constructIntro();</script>
+</body>
+
+</html>
