@@ -159,14 +159,14 @@ function getEnvironmentText(tempStr) {
 
 function matchPlantType(temp) {
     // 特殊獨立字串的直接對應
-    const單一對應 = {
+    const pair = {
         "2114": "A",
         "2111": "ABD",
         "2113": "BC",
         "2241": "BCDE"
     };
-    if (單一對應[temp]) {
-        return 單一對應[temp];
+    if (pair[temp]) {
+        return pair[temp];
     }
 
     // 多個字串對應同一個結果的陣列
