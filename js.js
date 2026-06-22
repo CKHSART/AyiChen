@@ -96,7 +96,7 @@ function constructIntro() {
                         if (!classSet.has(item[9])) {
                             classSet.add(item[9]);
                             const classDiv = document.createElement("div");
-                            const className = document.createElement("p");
+                            const className = document.createElement("h3");
                             classDiv.id = "class_"+item[9];
                             classDiv.className = "grid-container"
                             className.textContent = item[9];
