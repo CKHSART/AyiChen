@@ -1,5 +1,4 @@
 function constructIntro() {
-    document.getElementById("cactusesbox").innerHTML = "";
     fetch("./cactus_data.csv")
         .then((res) => res.text())
         .then((csvText) => {
