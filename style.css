@@ -59,7 +59,9 @@ button {
     padding: 10px;
     margin: 0;
     font-family: inherit;
-    background-color: transparent;
+    color: black;
+    background-color: white;
+    border-radius: 8px;
     position: relative;
     transition: opacity 0.3s ease;
     opacity: 1;
@@ -67,9 +69,11 @@ button {
 
 button:hover {
     opacity: 0.8;
+    color: black;
+    background-color: white;
 }
 
-button::after {
+/*button::after {
     content: "";
     position: absolute;
     left: 50%;
@@ -83,7 +87,7 @@ button::after {
 button:hover::after {
     width: 100%;
     left: 0;
-}
+}*/
 
 /*button::before {
   content: "這是說明文字";
