@@ -16,8 +16,28 @@ function constructIntro() {
                     console.log(tags);
                     const classSet = new Set();
                     for (let i = 1; i < data.length; i++) {
+                        /*
+                        item
+                        0: A
+                        1: B
+                        2: C
+                        3: D
+                        4: E
+                        5: common name
+                        6: scientific name
+                        7: variant name (f. for formo)
+                        8: cultivar name
+                        9: class
+                        10: introduction
+                        11: wide
+                        12: narrow
+                        13: deep
+                        14: shallow
+                        15: image path 64 base
+                        */
                         const item = data[i];
                         console.log(item[5]);
+                        
                         // 1. 建立最外層 div
                         const cactusDiv = document.createElement("div");
                         cactusDiv.className = "cactusItem";
@@ -26,25 +46,25 @@ function constructIntro() {
                                 cactusDiv.classList.add(String.fromCharCode(j + 65));
                             }
                         }
+                        for (let j = 11; j < 15; j++) {
+                            if (item[j] == '1') {
+                                cactusDiv.classList.add('potType_'+(j-11));
+                            }
+                        }
                         cactusDiv.style.display = "none";
 
                         // 2. 建立圖片元素
                         const imageWrapper = document.createElement("div");
                         imageWrapper.className = "imageWrapper";
                         const img = document.createElement("img");
-                        /*tempsrc = "";
-                        for (let i = 12;i>11;i++){
-                            if (item[i] == ""){break;}
-                            else{tempsrc+=item[i]}
-                        }*/
-                        img.src = "data:image/webp;base64," + item[12];
-                        img.alt = "多肉照";
+                        img.src = "data:image/webp;base64," + item[15];
+                        img.alt = "多肉照片";
 
                         // 3. 建立 intro 容器
                         const introDiv = document.createElement("div");
                         introDiv.className = "intro";
 
-                        // 4. 加入  標題
+                        // 4. 加入標題
                         const name = document.createElement("p");
                         name.innerHTML = "<b>" + item[5] + "</b>";
                         name.style.fontSize = "28px";
@@ -64,7 +84,8 @@ function constructIntro() {
                         const cls = document.createElement("p");
                         cls.style.fontSize = "20px";
                         cls.innerHTML = item[9];
-                        // 5. 加入黑線 divider
+                        
+                        // 5. 加入黑線
                         const divider = document.createElement("div");
                         divider.style.height = "0.5px";
                         divider.style.backgroundColor = "black";
@@ -92,6 +113,7 @@ function constructIntro() {
                         cactusDiv.appendChild(imageWrapper);
                         cactusDiv.appendChild(introDiv);
                         console.log(cactusDiv);
+                        
                         // 9. 加到頁面中
                         if (!classSet.has(item[9])) {
                             classSet.add(item[9]);
@@ -112,114 +134,143 @@ function constructIntro() {
             });
         });
 }
+
 function prepintro() {
-    let key = document.getElementById("show").innerHTML;
+    let show_element = document.getElementById("show").innerHTML;
     console.log("keys:");
-    console.log(key.split(""));
-    key.split("").forEach((chr) => {
+    console.log(show_element.split(""));
+    show_element.split("").forEach((chr) => {
         document.querySelectorAll('.' + chr).forEach((el) => {
             el.style.display = 'block';
         });
     });
 }
+
+function getEnvironmentText(tempStr) {
+    const config = [["平地", "山邊"], ["室內", "室外"], ["窗台", "無窗", "陽台", "露臺"], ["東", "西", "南", "北"]];
+    let pref = "";
+    tempStr.split("").forEach((i, j) => {
+        if (config[j] && config[j][parseInt(i) - 1]) {
+            pref += "-" + config[j][parseInt(i) - 1];
+        }
+    });
+    return pref + "-";
+}
+
+function matchPlantType(temp) {
+    // 特殊獨立字串的直接對應
+    const單一對應 = {
+        "2114": "A",
+        "2111": "ABD",
+        "2113": "BC",
+        "2241": "BCDE"
+    };
+    if (單一對應[temp]) {
+        return 單一對應[temp];
+    }
+
+    // 多個字串對應同一個結果的陣列
+    const ab = ["1114", "1224"];
+    const abc = ["1111", "1234", "2234", "2244"];
+    const abcde = ["1241", "2231"];
+    const cde = ["1113", "1231", "1233", "2243"];
+    const ce = ["1112", "2232", "2242"];
+    const de = ["1243", "2233"];
+    const e = ["1232", "1242"];
+
+    if (ab.includes(temp)) return "AB";
+    if (abc.includes(temp)) return "ABC";
+    if (abcde.includes(temp)) return "ABCDE";
+    if (cde.includes(temp)) return "CDE";
+    if (ce.includes(temp)) return "CE";
+    if (de.includes(temp)) return "DE";
+    if (e.includes(temp)) return "E";
+
+    // 如果都沒配對到，回傳空字串
+    return "";
+}
+
+function triggerFadeIn(id, displayType) {
+    const box = document.getElementById(id);
+    box.classList.remove("fadeIn");
+    box.offsetWidth; // 觸發重繪
+    box.style.display = displayType;
+    box.classList.add("fadeIn");
+}
+
 function change(a) {
     console.log("change" + a);
-    document.getElementById("key").innerHTML += a;
-    let l = document.getElementById("key").innerHTML.length;
-    let temp = document.getElementById("key").innerHTML;
-    if (l == 1) {
-        const box = document.getElementById("contbtn")
-        box.classList.remove("fadeIn");
-        box.offsetWidth;
-        box.style.display = "flex";
-        box.classList.add("fadeIn")
+
+    const key_element = document.getElementById("key");
+    const show_element = document.getElementById("show");
+    const showplace_element = document.getElementById("showplace");
+    
+    key_element.innerHTML += a;
+    let temp = key_element.innerHTML;
+    let l = temp.length;
+    
+    if (l === 1) {
+        triggerFadeIn("contbtn","flex");
+        return;
     }
-    if (l == 2) {
+    
+    if (l === 2) {
         document.getElementById("2" + temp.slice(-1,)).hidden = false;
-        document.getElementById(1).hidden = true;
-    } else {
-        if (l == 3) {
-            document.getElementById("21").hidden = true;
-            document.getElementById("22").hidden = true;
-            if (temp.slice(-1,) == 2) {
-                document.getElementById("show").innerHTML = "A";
-                document.getElementById("key").innerHTML += "0"
-                document.getElementById(4).hidden = false;
-                let pref = "";
-                let preftemp = [["平地", "山邊"], ["室內", "室外"], ["窗台", "無窗", "陽台", "露臺"], ["東", "西", "南", "北"]]
-                temp.split("").forEach((i, j, k) => { pref += "-" + preftemp[j][parseInt(i) - 1]; });
-                pref += "-";
-                document.getElementById("showplace").innerHTML = pref;
-                prepintro();
+        document.getElementById('1').hidden = true;
+        return;
+    }
+    
+    if (l === 3) {
+        document.getElementById("21").hidden = true;
+        document.getElementById("22").hidden = true;
+
+        //「無窗」直接補到長度4
+        if (temp.slice(-1,) == 2) {
+            show_element.innerHTML = "A";
+            key_element.innerHTML += "0";
+            showplace_element.innerHTML = getEnvironmentText(temp);
+            
+            document.getElementById('4').hidden = false;
+            prepintro();
         } else {
-            document.getElementById(3).hidden = false;
+            document.getElementById('3').hidden = false;
         }
-    } else if (l == 4) {
-        let ab = ["1114", "1224"];
-        let abc = ["1111", "1234", "2234", "2244"];
-        let abcde = ["1241", "2231"];
-        let cde = ["1113", "1231", "1233", "2243"];
-        let ce = ["1112", "2232", "2242"];
-        let de = ["1243", "2233"];
-        let e = ["1232", "1242"];
-        let pref = "";
-        let preftemp = [["平地", "山邊"], ["室內", "室外"], ["窗台", "無窗", "陽台", "露臺"], ["東", "西", "南", "北"]]
-        temp.split("").forEach((i, j, k) => { pref += "-" + preftemp[j][parseInt(i) - 1]; });
-        pref += "-";
-        document.getElementById("showplace").innerHTML = pref;
-        document.getElementById("show").innerHTML = "";
-        if (temp == "2114") { document.getElementById("show").innerHTML += "A"; }
-        if (ab.includes(temp)) { document.getElementById("show").innerHTML += "AB"; }
-        if (abc.includes(temp)) { document.getElementById("show").innerHTML += "ABC"; }
-        if (temp == "2111") { document.getElementById("show").innerHTML += "ABD"; }
-        if (abcde.includes(temp)) { document.getElementById("show").innerHTML += "ABCDE"; }
-        if (temp == "2113") { document.getElementById("show").innerHTML += "BC"; }
-        if (temp == "2241") { document.getElementById("show").innerHTML += "BCDE"; }
-        if (cde.includes(temp)) { document.getElementById("show").innerHTML += "CDE"; }
-        if (ce.includes(temp)) { document.getElementById("show").innerHTML += "CE"; }
-        if (de.includes(temp)) { document.getElementById("show").innerHTML += "DE"; }
-        if (e.includes(temp)) { document.getElementById("show").innerHTML += "E"; }
+        return;
+    }
+
+    if (l === 4) {
+        showplace_element.innerHTML = getEnvironmentText(temp);
+        show_element.innerHTML = "";
+        show_element.innerHTML = matchPlantType(temp);
+        
         document.getElementById('3').hidden = true;
         document.getElementById('4').hidden = false;
         prepintro();
-
-    } else {
-        if (l == 6) {
-            document.getElementById(5).hidden = true;
-            if (temp.slice(-2, -1) == "1") {
-                document.getElementById("showpot").innerHTML += "深";
-            } else {
-                document.getElementById("showpot").innerHTML += "淺";
-            }
-            if (temp.slice(-1,) == "1") {
-                document.getElementById("showpot").innerHTML += "寬";
-            } else {
-                document.getElementById("showpot").innerHTML += "窄";
-            }
-            const show2pot = document.getElementById('show2pot');
-            show2pot.innerHTML = document.getElementById('show').innerHTML+document.getElementById('showpot').innerHTML;
-            console.log(show2pot.innerHTML);
-            const box = document.getElementById('ansbox');
-            box.classList.remove("fadeIn");
-            box.offsetWidth;
-            box.style.display = "block";
-            box.classList.add("fadeIn");
-            const cbox = document.getElementById('cactusesbox');
-            cbox.classList.remove("fadeIn");
-            cbox.offsetWidth;
-            cbox.style.display = "grid";
-            cbox.classList.add("fadeIn");
-
-
-
-        } else {
-            document.getElementById(l - 1).hidden = true;
-            document.getElementById(l).hidden = false;
-        }
+        return;
     }
+    
+    if (l === 6) {
+        document.getElementById('5').hidden = true;
+
+        showpot_element = document.getElementById("showpot");
+        show2pot_element = document.getElementById('show2pot');
+        
+        showpot_element.innerHTML = (temp.slice(-2, -1) === "1" ? "深" : "淺") + (temp.slice(-1) === "1" ? "寬" : "窄");
+        show2pot_element.innerHTML = show_element.innerHTML+showpot_element.innerHTML;
+        
+        console.log(show2pot_element.innerHTML);
+
+        triggerFadeIn("ansbox","block");
+        triggerFadeIn("cactusesbox","grid");
+        return;
+    }
+    
+    //預設換頁
+    document.getElementById(l - 1).hidden = true;
+    document.getElementById(l).hidden = false;
+    
 }
 
-}
 function reset() {
     document.getElementById(0).hidden = false;
     document.getElementById(1).hidden = true;
@@ -236,6 +287,7 @@ function reset() {
     document.getElementById("showpot").innerHTML = "";
     document.getElementById("contbtn").style.display = 'none';
 }
+
 function prev() {
     let temp = document.getElementById("key").innerHTML;
     let l = temp.length;
