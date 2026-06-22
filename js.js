@@ -211,6 +211,7 @@ function change(a) {
     
     if (l === 1) {
         triggerFadeIn("contbtn","flex");
+        document.getElementById('0').hidden = true;
         return;
     }
     
