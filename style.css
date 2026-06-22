@@ -10,9 +10,15 @@
     }
 }
 
+:root {
+    --color0: rgb(102, 102, 51);
+    --color1: white;
+    --color2: rgb(51,204,255);
+}
+
 html {
     font-family: sans-serif;
-    background-color: rgb(102, 102, 51);
+    background-color: var(--color0);
 
 }
 
@@ -20,6 +26,7 @@ body {
     -webkit-overflow-scrolling: touch;
     text-align: center;
     color: white;
+    font-family: "Chiron GoRound TC";
 }
 
 ul {
@@ -38,7 +45,7 @@ li {
 }
 
 h2 {
-    color: rgb(51,204,255);
+    color: var(--color2);
 }
 
 .flexbox {
@@ -64,8 +71,9 @@ button {
     padding: 10px;
     margin: 0;
     font-family: inherit;
-    color: black;
-    background-color: white;
+    color: var(--color1);
+    background-color: var(--color0);
+    border-color: var(--color1);
     border-radius: 8px;
     position: relative;
     transition: opacity 0.3s ease;
@@ -73,9 +81,8 @@ button {
 }
 
 button:hover {
-    opacity: 0.8;
-    color: black;
-    background-color: white;
+    color: var(--color0);
+    background-color: var(--color1);
 }
 
 /*button::after {
