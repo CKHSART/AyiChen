@@ -97,11 +97,13 @@ function constructIntro() {
                             classSet.add(item[9]);
                             const classDiv = document.createElement("div");
                             const className = document.createElement("h3");
-                            classDiv.id = "class_"+item[9];
-                            classDiv.className = "grid-container"
+                            const classCactus = document.createElement("div")
+                            classCactus.id = "class_"+item[9];
+                            classCactus.className = "grid-container"
                             className.textContent = item[9];
                             document.getElementById("cactusesbox").appendChild(classDiv);
                             classDiv.appendChild(className);
+                            classDiv.appendChild(classCactus);
                             console.log("新增"+item[9]);
                         }
                         document.getElementById("class_"+item[9]).appendChild(cactusDiv);
