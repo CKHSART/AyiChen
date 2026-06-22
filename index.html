@@ -11,13 +11,16 @@
     <link rel="icon" href="icon.png" type="image/x-icon">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
     <script src="js.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@200..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>多肉選擇小幫手（維護中）</h1>
-    <div class="fadeIn" style="height:0.5px;background-color: black;width: 90%;left:5%;position:absolute;"></div>
+    <div class="fadeIn" style="height:0.5px;background-color: white;width: 90%;left:5%;position:absolute;"></div>
     <h1 id="key" hidden></h1>
     <div class="fadeIn">
-        <h2>已選擇</h2>
+        <h2>已選擇：</h2>
         <p id="showplace"></p>
     </div>
     <div class="flexbox fadeIn">
@@ -62,13 +65,13 @@
         <button id="resetbtn" onclick="reset()">重填</button>
     </div>
     <div id="ansbox" class="fadeIn" style="display:none;position:relative;">
-        <h2>環境結果</h2>
+        <h2>環境代碼：</h2>
         <p id="show"></p>
-        <h2>盆器結果</h2>
+        <h2>盆器代碼：</h2>
         <p id="showpot"></p>
         <p id="show2pot" hidden></p>
     </div>
-    <div class="fadeIn" style="height:0.5px;background-color: black;width: 90%;left:5%;position:absolute;"></div>
+    <div class="fadeIn" style="height:0.5px;background-color: white;width: 90%;left:5%;position:absolute;"></div>
     <div id="cactusesbox" class="fadeIn" style="display:none;">
         <h2>適合種植的多肉品種：</h2>
     </div>
