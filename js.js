@@ -48,7 +48,7 @@ function constructIntro() {
                         }
                         for (let j = 11; j < 15; j++) {
                             if (item[j] == '1') {
-                                cactusDiv.classList.add('potType_'+(j-11));
+                                cactusDiv.classList.add('potType_'+Math.floor(j-11)/2+(j-11)%2);
                             }
                         }
                         cactusDiv.style.display = "none";
@@ -136,37 +136,53 @@ function constructIntro() {
 }
 
 function prepintro() {
-    let show_element = document.getElementById("show").innerHTML;
+    let key_0 = document.getElementById("show").innerHTML;
+    let key_1 = (document.getElementById("show2pot").innerHTML).slice(-2,-1);
+    let key_2 = (document.getElementById("show2pot").innerHTML).slice(-2,-1);
     console.log("keys:");
-    console.log(show_element.split(""));
-    show_element.split("").forEach((chr) => {
+    console.log(key_0.split(""));
+    key_0.split("").forEach((chr) => {
         document.querySelectorAll('.' + chr).forEach((el) => {
             el.style.display = 'block';
         });
     });
+    document.querySelectorAll('.0' + key_1).forEach((el) => {
+            el.style.display = 'block';
+    });
+    document.querySelectorAll('.1' + key_2).forEach((el) => {
+            el.style.display = 'block';
+    });
 }
 
 function getEnvironmentText(tempStr) {
-    const config = [["平地", "山邊"], ["室內", "室外"], ["窗台", "無窗", "陽台", "露臺"], ["東", "西", "南", "北"]];
+    const config = [
+        ["平地", "山邊"],
+        ["室內", "室外"],
+        ["窗台", "無窗", "陽台", "露臺"],
+        ["東", "西", "南", "北","（略）"],
+        ["深", "淺"],
+        ["寬", "窄"]
+    ];
     let pref = "";
     tempStr.split("").forEach((i, j) => {
         if (config[j] && config[j][parseInt(i) - 1]) {
-            pref += "-" + config[j][parseInt(i) - 1];
+            pref += ">" + config[j][parseInt(i) - 1];
         }
     });
-    return pref + "-";
+    return pref;
 }
 
-function matchPlantType(temp) {
+function matchPlantType_1(temp) {
     // 特殊獨立字串的直接對應
+    const temp_1 = temp.slice(0,4);
     const pair = {
         "2114": "A",
         "2111": "ABD",
         "2113": "BC",
         "2241": "BCDE"
     };
-    if (pair[temp]) {
-        return pair[temp];
+    if (pair[temp_1]) {
+        return pair[temp_1];
     }
 
     // 多個字串對應同一個結果的陣列
@@ -178,16 +194,20 @@ function matchPlantType(temp) {
     const de = ["1243", "2233"];
     const e = ["1232", "1242"];
 
-    if (ab.includes(temp)) return "AB";
-    if (abc.includes(temp)) return "ABC";
-    if (abcde.includes(temp)) return "ABCDE";
-    if (cde.includes(temp)) return "CDE";
-    if (ce.includes(temp)) return "CE";
-    if (de.includes(temp)) return "DE";
-    if (e.includes(temp)) return "E";
+    if (ab.includes(temp_1)) return "AB";
+    if (abc.includes(temp_1)) return "ABC";
+    if (abcde.includes(temp_1)) return "ABCDE";
+    if (cde.includes(temp_1)) return "CDE";
+    if (ce.includes(temp_1)) return "CE";
+    if (de.includes(temp_1)) return "DE";
+    if (e.includes(temp_1)) return "E";
 
     // 如果都沒配對到，回傳空字串
     return "";
+}
+
+function matchPlantType_2(temp) {
+    return if (temp.slice(4,5) === "1" ? "深" : "淺") + (temp.slice(5,6) === "1" ? "寬" : "窄");
 }
 
 function triggerFadeIn(id, displayType) {
@@ -206,6 +226,7 @@ function change(a) {
     const showplace_element = document.getElementById("showplace");
     
     key_element.innerHTML += a;
+    showplace_element.innerHTML = getEnvironmentText(temp);
     let temp = key_element.innerHTML;
     let l = temp.length;
     
@@ -229,7 +250,7 @@ function change(a) {
         //「無窗」直接補到長度4
         if (temp.slice(-1,) == 2) {
             show_element.innerHTML = "A";
-            key_element.innerHTML += "0";
+            key_element.innerHTML += "5";
             showplace_element.innerHTML = getEnvironmentText(temp);
             
             document.getElementById('4').hidden = false;
@@ -241,9 +262,9 @@ function change(a) {
     }
 
     if (l === 4) {
-        showplace_element.innerHTML = getEnvironmentText(temp);
+        //showplace_element.innerHTML = getEnvironmentText(temp);
         show_element.innerHTML = "";
-        show_element.innerHTML = matchPlantType(temp);
+        //show_element.innerHTML = matchPlantType1(temp);
         
         document.getElementById('3').hidden = true;
         document.getElementById('4').hidden = false;
@@ -256,12 +277,12 @@ function change(a) {
 
         showpot_element = document.getElementById("showpot");
         show2pot_element = document.getElementById('show2pot');
-        
-        showpot_element.innerHTML = (temp.slice(-2, -1) === "1" ? "深" : "淺") + (temp.slice(-1) === "1" ? "寬" : "窄");
-        show2pot_element.innerHTML = show_element.innerHTML+showpot_element.innerHTML;
+
+        show_element.innerHTML = matchPlantType_1(temp);
+        showpot_element.innerHTML = matchPlantType_2(temp);
+        show2pot_element.innerHTML = show_element.innerHTML+temp.slice(-2);
         
         console.log(show2pot_element.innerHTML);
-
         prepintro();
 
         triggerFadeIn("ansbox","block");
