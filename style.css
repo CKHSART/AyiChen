@@ -67,13 +67,12 @@ h2 {
 
 button {
     display: block;
-    border: 2px;
+    border: 2px solid var(--color1);
     padding: 10px;
     margin: 0;
     font-family: inherit;
     color: var(--color1);
     background-color: var(--color0);
-    border-color: var(--color1);
     border-radius: 8px;
     position: relative;
     transition: opacity 0.3s ease;
