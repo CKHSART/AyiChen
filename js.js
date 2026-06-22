@@ -225,9 +225,11 @@ function change(a) {
     const showplace_element = document.getElementById("showplace");
     
     key_element.innerHTML += a;
-    showplace_element.innerHTML = getEnvironmentText(temp);
+    
     let temp = key_element.innerHTML;
     let l = temp.length;
+
+    showplace_element.innerHTML = getEnvironmentText(temp);
     
     if (l === 1) {
         triggerFadeIn("contbtn","flex");
