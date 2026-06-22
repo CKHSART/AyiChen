@@ -260,6 +260,8 @@ function change(a) {
         
         console.log(show2pot_element.innerHTML);
 
+        prepintro();
+
         triggerFadeIn("ansbox","block");
         triggerFadeIn("cactusesbox","grid");
         return;
