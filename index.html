@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-hant">
 <!--CK77th郭醫德製作-->
-<!--CK78th吳宣熤小修改-->
+<!--CK78th吳宣熤修改-->
 <head>
     <title>多肉選擇小幫手（維護中）</title>
     <meta charset="utf-8">
@@ -16,6 +16,10 @@
     <h1>多肉選擇小幫手（維護中）</h1>
     <div class="fadeIn" style="height:0.5px;background-color: black;width: 90%;left:5%;position:absolute;"></div>
     <h1 id="key" hidden></h1>
+    <div class="fadeIn">
+        <p>已選擇</p>
+        <p id="showplace"></p>
+    </div>
     <div class="flexbox fadeIn">
         <ul id="0">
             <li><button onclick="change(1)">平地</button></li>
@@ -45,6 +49,7 @@
         <ul id="4" hidden>
             <li><button onclick="change(1)">盆身深(&gt12cm)</button></li>
             <li><button onclick="change(2)">盆身淺(&lt12cm)</button></li>
+            <li><button onclick="change(3)">略過盆器挑選</button></li>
         </ul>
         <!--第四層-->
         <ul id="5" hidden>
@@ -57,25 +62,15 @@
         <button id="resetbtn" onclick="reset()">重填</button>
     </div>
     <div id="ansbox" class="fadeIn" style="display:none;position:relative;">
-        <p id="showplace"></p>
-        <p id="show" hidden></p>
-        <p id="showpot" hidden></p>
-        <p id="show2pot"></p>
-        <h2>適合種植的多肉品種：</h2>
+        <p>環境結果</p>
+        <p id="show"></p>
+        <p>盆器結果</p>
+        <p id="showpot"></p>
+        <p id="show2pot" hidden></p>
     </div>
-    <div id="cactusesbox" class="fadeIn" style="display:none;">
-        <!--底下的是元素範例
-        <div class="cactusItem">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTkGaalF0pRoycFw6Bh14Hr4-DsYYjNgBY8Q&s"
-                alt="士童照">
-            <div class="intro">
-                <h3>士童 <i>Frailea Castenea</i>
-                </h3>
-                <div style="height:0.5px;background-color: black;width: 90%;left:5%;position:absolute;"></div>
-                <pre>是一棵士童</pre>
-            </div>
-        </div>-->
-    </div>
+    <div class="fadeIn" style="height:0.5px;background-color: black;width: 90%;left:5%;position:absolute;"></div>
+    <h2>適合種植的多肉品種：</h2>
+    <div id="cactusesbox" class="fadeIn" style="display:none;"></div>
     <script>constructIntro();</script>
 </body>
 
