@@ -212,12 +212,13 @@ function change(a) {
     if (l === 1) {
         triggerFadeIn("contbtn","flex");
         document.getElementById('0').hidden = true;
+        document.getElementById('1').hidden = false;
         return;
     }
     
     if (l === 2) {
-        document.getElementById("2" + temp.slice(-1,)).hidden = false;
         document.getElementById('1').hidden = true;
+        document.getElementById("2" + temp.slice(-1,)).hidden = false;
         return;
     }
     
