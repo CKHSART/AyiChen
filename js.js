@@ -317,10 +317,11 @@ function reset() {
 function prev() {
     let temp = document.getElementById("key").innerHTML;
     let l = temp.length;
-    if (temp.slice(-1) == "0") {
+    if (temp.slice(-1) == "5") {
         document.getElementById("key").innerHTML = temp.slice(0, -2);
         document.getElementById(4).hidden = true;
         document.getElementById(21).hidden = false;
+        return;
     } else if (l == 3) {
         document.getElementById(3).hidden = true;
         if (["1", "2"].includes(temp.slice(-1,))) {
@@ -329,29 +330,27 @@ function prev() {
             document.getElementById(22).hidden = false;
         }
         document.getElementById("key").innerHTML = temp.slice(0, -1);
+        return;
     } else if (l == 2) {
         document.getElementById("key").innerHTML = temp.slice(0, -1);
         document.getElementById(21).hidden = true;
         document.getElementById(22).hidden = true;
         document.getElementById(1).hidden = false;
+        return;
+    } else if (l == 6) {
+        document.getElementById("ansbox").style.display = 'none';
+        document.getElementById("cactusesbox").style.display = 'none';
+        let a = document.getElementById("showpot").innerHTML;
+        document.getElementById("showpot").innerHTML = a.slice(0, -2);
+        return;
     } else {
-        if (l != 6) {
-            document.getElementById(l).hidden = true;
-        } else {
-            document.getElementById("ansbox").style.display = 'none';
-            document.getElementById("cactusesbox").style.display = 'none';
-            let a = document.getElementById("showpot").innerHTML;
-            document.getElementById("showpot").innerHTML = a.slice(0, -2);
-        }
+        //預設
+        document.getElementById(l).hidden = true;
         document.getElementById(l - 1).hidden = false;
         document.getElementById("key").innerHTML = temp.slice(0, -1);
-        if (l == 4) {
-            document.getElementById("showplace").innerHTML = "";
-            document.getElementById("show").innerHTML = "";
-            document.getElementById("showpot").innerHTML = "";
-        }
         if (l == 1) {
             document.getElementById("contbtn").style.display = 'none';
         }
     }
+    document.getElementById("showplace").innerHTML = getEnvironmentText(temp);
 }
