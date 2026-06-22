@@ -100,7 +100,7 @@ function constructIntro() {
                             classDiv.id = "class_"+item[9];
                             className.textContent = item[9];
                             document.getElementById("cactusesbox").appendChild(classDiv);
-                            classDiv.appentChild(className);
+                            classDiv.appendChild(className);
                             console.log("新增"+item[9]);
                         }
                         document.getElementById("class_"+item[9]).appendChild(cactusDiv);
