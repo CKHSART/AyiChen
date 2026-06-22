@@ -137,8 +137,8 @@ function constructIntro() {
 
 function prepintro() {
     let key_0 = document.getElementById("show").innerHTML;
-    let key_1 = (document.getElementById("show2pot").innerHTML).slice(-2,-1);
-    let key_2 = (document.getElementById("show2pot").innerHTML).slice(-2,-1);
+    let key_1 = (document.getElementById("show2pot").innerHTML).slice(-2);
+
     console.log("keys:");
     console.log(key_0.split(""));
     key_0.split("").forEach((chr) => {
@@ -146,11 +146,10 @@ function prepintro() {
             el.style.display = 'block';
         });
     });
-    document.querySelectorAll('.0' + key_1).forEach((el) => {
+    key_1.split("").forEach((chr,i) => {
+        document.querySelectorAll('.' + i + chr).forEach((el) => {
             el.style.display = 'block';
-    });
-    document.querySelectorAll('.1' + key_2).forEach((el) => {
-            el.style.display = 'block';
+        });
     });
 }
 
@@ -207,7 +206,7 @@ function matchPlantType_1(temp) {
 }
 
 function matchPlantType_2(temp) {
-    return if (temp.slice(4,5) === "1" ? "深" : "淺") + (temp.slice(5,6) === "1" ? "寬" : "窄");
+    return (temp.slice(4,5) === "1" ? "深" : "淺") + (temp.slice(5,6) === "1" ? "寬" : "窄");
 }
 
 function triggerFadeIn(id, displayType) {
