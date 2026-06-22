@@ -14,6 +14,7 @@ function constructIntro() {
                     console.log(data.length);
                     console.log("tags:");
                     console.log(tags);
+                    const classSet = new Set();
                     for (let i = 1; i < data.length; i++) {
                         const item = data[i];
                         console.log(item[5]);
@@ -92,7 +93,17 @@ function constructIntro() {
                         cactusDiv.appendChild(introDiv);
                         console.log(cactusDiv);
                         // 9. 加到頁面中
-                        document.getElementById("cactusesbox").appendChild(cactusDiv);
+                        if (!classSet.has(item[9])) {
+                            classSet.add(item[9]);
+                            const classDiv = document.createElement("div");
+                            const className = document.createElement("p");
+                            classDiv.id = "class_"+item[9];
+                            className.textContent = item[9];
+                            document.getElementById("cactusesbox").appendChild(classDiv);
+                            classDiv.appentChild(className);
+                            console.log("新增"+item[9]);
+                        }
+                        document.getElementById("class_"+item[9]).appendChild(cactusDiv);
                     }
                 }
             });
