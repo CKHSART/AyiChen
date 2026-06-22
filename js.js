@@ -147,7 +147,7 @@ function prepintro() {
         });
     });
     key_1.split("").forEach((chr,i) => {
-        document.querySelectorAll('.' + i + chr).forEach((el) => {
+        document.querySelectorAll('.potType_' + i + chr).forEach((el) => {
             el.style.display = 'block';
         });
     });
