@@ -333,6 +333,11 @@ function prev() {
         document.getElementById(21).hidden = true;
         document.getElementById(22).hidden = true;
         document.getElementById(1).hidden = false;
+    } else if (l == 6) {
+        document.getElementById("key").innerHTML = temp.slice(0, -1);
+        document.getElementById(l - 1).hidden = false;
+        document.getElementById("ansbox").style.display = 'none';
+        document.getElementById("cactusesbox").style.display = 'none';
     } else {
         //預設
         document.getElementById(l).hidden = true;
@@ -340,12 +345,6 @@ function prev() {
         document.getElementById("key").innerHTML = temp.slice(0, -1);
         if (l == 1) {
             document.getElementById("contbtn").style.display = 'none';
-        }
-        if (l == 6) {
-            document.getElementById("ansbox").style.display = 'none';
-            document.getElementById("cactusesbox").style.display = 'none';
-            let a = document.getElementById("showpot").innerHTML;
-            document.getElementById("showpot").innerHTML = a.slice(0, -2);
         }
     }
     document.getElementById("showplace").innerHTML = getEnvironmentText(temp);
