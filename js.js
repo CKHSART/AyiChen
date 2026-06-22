@@ -1,6 +1,6 @@
 function constructIntro() {
     document.getElementById("cactusesbox").innerHTML = "";
-    fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQm0M_Wd1u-kz9i4rJs5_egSSLKc6NfdNDnGZnCQ7gcJdi8SlRmwVegL_WdKuMdN7HzYpqMs2nNNdyQ/pub?output=csv")
+    fetch("./cactus_data.csv")
         .then((res) => res.text())
         .then((csvText) => {
             const result = Papa.parse(csvText, {
