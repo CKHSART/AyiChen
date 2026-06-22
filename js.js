@@ -98,6 +98,7 @@ function constructIntro() {
                             const classDiv = document.createElement("div");
                             const className = document.createElement("p");
                             classDiv.id = "class_"+item[9];
+                            classDiv.className = "grid-container"
                             className.textContent = item[9];
                             document.getElementById("cactusesbox").appendChild(classDiv);
                             classDiv.appendChild(className);
