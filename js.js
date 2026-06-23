@@ -272,6 +272,7 @@ function change(a) {
 
     if (l === 5 && a === 3) {
         document.getElementById('4').hidden = true;
+        showpot_element = document.getElementById("showpot");
         show_element.innerHTML = matchPlantType_1(temp);
         showpot_element.innerHTML = "未選擇";
         prepintro();
