@@ -136,8 +136,6 @@ function constructIntro() {
 
 function prepintro() {
     let key_0 = document.getElementById("show").innerHTML;
-    let key_1 = (document.getElementById("show2pot").innerHTML).slice(-2);
-
     console.log("keys:");
     console.log(key_0.split(""));
     key_0.split("").forEach((chr) => {
@@ -145,11 +143,17 @@ function prepintro() {
             el.style.display = 'block';
         });
     });
-    key_1.split("").forEach((chr,i) => {
-        document.querySelectorAll('.potType_' + i + chr).forEach((el) => {
-            el.style.display = 'block';
+    
+    let key = document.getElementById("key").innerHTML;
+    if (key.length == 6) {
+        let key_1 = (document.getElementById("show2pot").innerHTML).slice(-2);
+        key_1.split("").forEach((chr,i) => {
+            document.querySelectorAll('.potType_' + i + chr).forEach((el) => {
+                el.style.display = 'block';
+            });
         });
-    });
+    }
+
 }
 
 function getEnvironmentText(tempStr) {
@@ -254,7 +258,6 @@ function change(a) {
             showplace_element.innerHTML = getEnvironmentText(temp);
             
             document.getElementById('4').hidden = false;
-            prepintro();
         } else {
             document.getElementById('3').hidden = false;
         }
@@ -262,13 +265,19 @@ function change(a) {
     }
 
     if (l === 4) {
-        //showplace_element.innerHTML = getEnvironmentText(temp);
-        show_element.innerHTML = "";
-        //show_element.innerHTML = matchPlantType1(temp);
-        
         document.getElementById('3').hidden = true;
         document.getElementById('4').hidden = false;
+        return;
+    }
+
+    if (l === 5 && a === 3) {
+        document.getElementById('4').hidden = true;
+        show_element.innerHTML = matchPlantType_1(temp);
+        showpot_element.innerHTML = "未選擇";
         prepintro();
+
+        triggerFadeIn("ansbox","block");
+        triggerFadeIn("cactusesbox","grid");
         return;
     }
     
@@ -334,6 +343,11 @@ function prev() {
         document.getElementById(22).hidden = true;
         document.getElementById(1).hidden = false;
     } else if (l == 6) {
+        document.getElementById("key").innerHTML = temp.slice(0, -1);
+        document.getElementById(l - 1).hidden = false;
+        document.getElementById("ansbox").style.display = 'none';
+        document.getElementById("cactusesbox").style.display = 'none';
+    } else if (l == 5 && temp.slice(-1) == '3') {
         document.getElementById("key").innerHTML = temp.slice(0, -1);
         document.getElementById(l - 1).hidden = false;
         document.getElementById("ansbox").style.display = 'none';
