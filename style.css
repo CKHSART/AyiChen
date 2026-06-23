@@ -196,6 +196,9 @@ button:hover::before {
     opacity: 0;
     transition: all 0.3s ease;
     border-radius: 8px;
+    overflow-wrap: break-word;
+    max-height: 80%;       /* 限制最高只佔父層的 80%，避免文字把整個畫面蓋滿 */
+    overflow-y: auto; 
 }
 .intro pre{
     display:block;
