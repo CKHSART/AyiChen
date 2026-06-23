@@ -81,6 +81,14 @@ h2 {
     gap: 10px;
 }
 
+.container {
+  width: 100%;             /* 在手機或小螢幕時，預設佔滿全部寬度 */
+  max-width: 1200px;       /* 限制電腦版最大寬度（常見為 1140px 到 1200px） */
+  margin: 0 auto;          /* 關鍵！讓這個區塊在畫面上水平置中 */
+  padding: 0 20px;         /* 防止手機版時內容直接貼齊左右螢幕邊緣 */
+  box-sizing: border-box;  /* 確保 padding 不會撐大整體寬度 */
+}
+
 button {
     display: block;
     border: 1px solid var(--color1);
