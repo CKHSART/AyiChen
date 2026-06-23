@@ -98,6 +98,9 @@ function constructIntro() {
                         const pre = document.createElement("pre");
                         pre.textContent = item[10];
                         pre.style.fontSize = "20px";
+                        const place = document.createElement("place");
+                        place.textContent = (item[0]==1?"A":"")+(item[1]==1?"B":"")+(item[2]==1?"C":"")+(item[3]==1?"D":"")+(item[4]==1?"E":"")+(item[11]==1?"寬":"")+(item[12]==1?"窄":"")+(item[13]==1?"深":"")+(item[14]==1?"淺":"");
+                        place.style.color = "red";
 
                         // 7. 組合 intro 裡的元素
                         introDiv.appendChild(name);
@@ -105,6 +108,7 @@ function constructIntro() {
                         introDiv.appendChild(cls);
                         introDiv.appendChild(divider);
                         predivbox.appendChild(pre);
+                        predivbox.appendChild(place);
                         introDiv.appendChild(predivbox);
 
                         // 8. 組合 cactusItem
@@ -162,8 +166,8 @@ function getEnvironmentText(tempStr) {
         ["室內", "室外"],
         ["窗台", "無窗", "陽台", "露臺"],
         ["東", "西", "南", "北"],
-        ["深", "淺"],
-        ["寬", "窄"]
+        ["寬", "窄"],
+        ["深", "淺"]
     ];
     let pref = "";
     tempStr.split("").forEach((i, j) => {
