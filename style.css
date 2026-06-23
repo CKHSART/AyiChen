@@ -233,4 +233,41 @@ button:hover::before {
     border-radius: 8px;
 }
 
+.back-to-top {
+  /* 定位與層級 */
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 99;
+  
+  /* 尺寸與形狀 */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  
+  /* 視覺設計 */
+  background-color: #007bff;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  
+  /* 隱藏與動態效果 */
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+/* 滑鼠懸停效果 */
+.back-to-top:hover {
+  background-color: #0056b3;
+  transform: translateY(-5px); /* 微微向上浮起 */
+}
+
+/* 顯示按鈕的 class */
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
 
