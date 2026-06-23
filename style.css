@@ -34,12 +34,15 @@ html, body {
 }
 
 header {
-  display: flex; /* 讓 Logo 和導覽列並排 */
-  justify-content: space-between; /* 兩側對齊 */
-  align-items: center; /* 上下垂直置中 */
-  padding: 15px 30px;
-  background-color: var(--color0);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 底部陰影 */
+    display: flex; /* 讓 Logo 和導覽列並排 */
+    justify-content: space-between; /* 兩側對齊 */
+    align-items: center; /* 上下垂直置中 */
+    padding: 15px 30px;
+    background-color: var(--color0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 底部陰影 */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 ul {
