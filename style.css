@@ -28,6 +28,11 @@ body {
     font-family: "Chiron GoRound TC";
 }
 
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
 ul {
     background-color: transparent;
     list-style-type: none;
