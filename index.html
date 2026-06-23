@@ -20,8 +20,7 @@
     <div class="fadeIn" style="height:0.5px;background-color: white;width: 90%;left:5%;position:absolute;"></div>
     <h1 id="key" hidden></h1>
     <div class="fadeIn">
-        <h2>已選擇：</h2>
-        <p id="showplace"></p>
+        <h2>已選擇：<span id="showplace"></span></h2>
     </div>
     <div class="flexbox fadeIn">
         <ul id="0">
@@ -65,15 +64,11 @@
         <button id="resetbtn" class="contbtn" onclick="reset()">重填</button>
     </div>
     <div id="ansbox" class="fadeIn" style="display:none;position:relative;">
-        <h2>環境代碼：</h2>
-        <p id="show"></p>
-        <h2>盆器代碼：</h2>
-        <p id="showpot"></p>
         <p id="show2pot" hidden></p>
     </div>
     <div class="fadeIn" style="height:0.5px;background-color: white;width: 90%;left:5%;position:absolute;"></div>
     <div id="cactusesbox" class="fadeIn" style="display:none;">
-        <h2>適合種植的多肉品種：</h2>
+        <h2>適合種植的多肉品種（<span id="show"></span><span id="showpot"></span>）：</h2>
     </div>
     <script>constructIntro();</script>
 </body>
