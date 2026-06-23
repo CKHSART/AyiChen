@@ -323,10 +323,11 @@ function reset() {
 }
 
 function prev() {
-    let temp = document.getElementById("key").innerHTML;
+    let key_element = document.getElementById("key");
+    let temp = key_element.innerHTML;
     let l = temp.length;
     if (temp.slice(-1) == "5") {
-        document.getElementById("key").innerHTML = temp.slice(0, -2);
+        key_element.innerHTML = temp.slice(0, -2);
         document.getElementById(4).hidden = true;
         document.getElementById(21).hidden = false;
     } else if (l == 3) {
@@ -336,19 +337,19 @@ function prev() {
         } else {
             document.getElementById(22).hidden = false;
         }
-        document.getElementById("key").innerHTML = temp.slice(0, -1);
+        key_element.innerHTML = temp.slice(0, -1);
     } else if (l == 2) {
-        document.getElementById("key").innerHTML = temp.slice(0, -1);
+        key_element.innerHTML = temp.slice(0, -1);
         document.getElementById(21).hidden = true;
         document.getElementById(22).hidden = true;
         document.getElementById(1).hidden = false;
     } else if (l == 6) {
-        document.getElementById("key").innerHTML = temp.slice(0, -1);
+        key_element.innerHTML = temp.slice(0, -1);
         document.getElementById(l - 1).hidden = false;
         document.getElementById("ansbox").style.display = 'none';
         document.getElementById("cactusesbox").style.display = 'none';
     } else if (l == 5 && temp.slice(-1) == '3') {
-        document.getElementById("key").innerHTML = temp.slice(0, -1);
+        key_element.innerHTML = temp.slice(0, -1);
         document.getElementById(l - 1).hidden = false;
         document.getElementById("ansbox").style.display = 'none';
         document.getElementById("cactusesbox").style.display = 'none';
@@ -356,10 +357,10 @@ function prev() {
         //預設
         document.getElementById(l).hidden = true;
         document.getElementById(l - 1).hidden = false;
-        document.getElementById("key").innerHTML = temp.slice(0, -1);
+        key_element.innerHTML = temp.slice(0, -1);
         if (l == 1) {
             document.getElementById("contbtn").style.display = 'none';
         }
     }
-    document.getElementById("showplace").innerHTML = getEnvironmentText(temp);
+    document.getElementById("showplace").innerHTML = getEnvironmentText(key_element.innerHTML);
 }
