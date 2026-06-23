@@ -178,7 +178,6 @@ function matchPlantType_1(temp) {
     // 特殊獨立字串的直接對應
     const temp_1 = temp.slice(0,4);
     const pair = {
-        "2114": "A",
         "2111": "ABD",
         "2113": "BC",
         "2241": "BCDE"
@@ -188,6 +187,7 @@ function matchPlantType_1(temp) {
     }
 
     // 多個字串對應同一個結果的陣列
+    const a = ["2114", "1125", "2125"]
     const ab = ["1114", "1224"];
     const abc = ["1111", "1234", "2234", "2244"];
     const abcde = ["1241", "2231"];
@@ -196,6 +196,7 @@ function matchPlantType_1(temp) {
     const de = ["1243", "2233"];
     const e = ["1232", "1242"];
 
+    if (a.includes(temp_1)) return "A";
     if (ab.includes(temp_1)) return "AB";
     if (abc.includes(temp_1)) return "ABC";
     if (abcde.includes(temp_1)) return "ABCDE";
