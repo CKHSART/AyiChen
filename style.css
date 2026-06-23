@@ -19,6 +19,7 @@
 html {
     font-family: sans-serif;
     background-color: var(--color0);
+    width: 100%;
 
 }
 
@@ -26,10 +27,6 @@ body {
     -webkit-overflow-scrolling: touch;
     color: white;
     font-family: "Chiron GoRound TC";
-}
-
-html, body {
-    width: 100%;
 }
 
 header {
@@ -264,7 +261,7 @@ button:hover::before {
 /* 滑鼠懸停效果 */
 .back-to-top:hover {
     background-color: var(--color2);
-    color: var(--color2);
+    color: var(--color1);
     transform: translateY(-5px); /* 微微向上浮起 */
 }
 
