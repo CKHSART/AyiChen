@@ -135,6 +135,15 @@ button:hover::after {
 button:hover::before {
   opacity: 1;
 }*/
+
+.divider {
+    height: 0.5px;
+    background-color: white;
+    width: 90%;
+    left: 5%;
+    position: absolute;
+}
+
 .fadeIn {
     animation: fadeIn 0.8s ease forwards;
 }
