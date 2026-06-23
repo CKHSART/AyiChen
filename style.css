@@ -38,7 +38,7 @@ header {
     align-items: center; /* 上下垂直置中 */
     padding: 15px 30px;
     background-color: var(--color0);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 底部陰影 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -76,7 +76,7 @@ h2 {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
     gap: 10px;
 }
 
@@ -97,6 +97,7 @@ button {
     color: var(--color1);
     background-color: var(--color0);
     border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: relative;
     transition: opacity 0.3s ease;
     opacity: 1;
