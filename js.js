@@ -161,6 +161,14 @@ function prepintro() {
             });
         });
     }
+    
+    document.querySelectorAll('.combinationbBtn').forEach((el) => {
+        if (el.id == 'combinationBtn_all') {
+            el.classList.add("contBtn");
+        } else {
+            el.classList.remove("contBtn");
+        }
+    });
 
 }
 
@@ -168,22 +176,23 @@ function show(text) {
     document.querySelectorAll('.cactusItem').forEach((el) => {
         el.style.display = 'none';
     });
-
-    document.querySelectorAll('.combinationbBtn').forEach((el) => {
-        if (el.id == 'combinationBtn_'+text) {
-            el.style.display = 'block';
-        } else {
-            el.style.display = 'none';
-        }
-    });
-
+    
     if (text == "all") {
         prepintro();
     } else {
+        document.querySelectorAll('.combinationbBtn').forEach((el) => {
+            if (el.id == 'combinationBtn_'+text) {
+                el.classList.add("contBtn");
+            } else {
+                el.classList.remove("contBtn");
+            }
+        });
         document.querySelectorAll('.' + text).forEach((el) => {
             el.style.display = 'block';
         });
     }
+    triggerFadeIn("ansbox","block");
+    triggerFadeIn("cactusesbox","grid");
 }
 
 function getEnvironmentText(tempStr) {
