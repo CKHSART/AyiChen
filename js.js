@@ -164,9 +164,9 @@ function prepintro() {
     
     document.querySelectorAll('.combinationbBtn').forEach((el) => {
         if (el.id == 'combinationBtn_all') {
-            el.classList.add("contBtn");
+            el.classList.add("combinationBtnChoosed");
         } else {
-            el.classList.remove("contBtn");
+            el.classList.remove("combinationBtnChoosed");
         }
     });
 
