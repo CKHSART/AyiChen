@@ -47,7 +47,7 @@ function constructIntro() {
                         }
                         for (let j = 11; j < 15; j++) {
                             if (item[j] == '1') {
-                                cactusDiv.classList.add('potType_'+Math.floor(j-11)/2+(j-11)%2);
+                                cactusDiv.classList.add('potType_'+Math.floor((j-11)/2)+(j-11)%2);
                             }
                         }
                         cactusDiv.style.display = "none";
@@ -139,6 +139,10 @@ function constructIntro() {
 }
 
 function prepintro() {
+    document.querySelectorAll('.cactusItem').forEach((el) => {
+        el.style.display = 'none';
+    });
+    
     let key_0 = document.getElementById("show").innerHTML;
     console.log("keys:");
     console.log(key_0.split(""));
@@ -158,6 +162,28 @@ function prepintro() {
         });
     }
 
+}
+
+function show(text) {
+    document.querySelectorAll('.cactusItem').forEach((el) => {
+        el.style.display = 'none';
+    });
+
+    document.querySelectorAll('.combinationbBtn').forEach((el) => {
+        if (el.id == 'combinationBtn_'+text) {
+            el.style.display = 'block';
+        } else {
+            el.style.display = 'none';
+        }
+    });
+
+    if (text == "all") {
+        prepintro();
+    } else {
+        document.querySelectorAll('.' + text).forEach((el) => {
+            el.style.display = 'block';
+        });
+    }
 }
 
 function getEnvironmentText(tempStr) {
