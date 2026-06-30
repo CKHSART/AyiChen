@@ -117,6 +117,17 @@ button:hover {
     background-color: var(--color2);
 }
 
+.combinationBtnChoosed button {
+    color: var(--color2);
+    border: 1px solid var(--color2);
+}
+
+.combinationBtnChoosed button:hover {
+    color: var(--color0);
+    background-color: var(--color2);
+}
+
+
 /*button::after {
     content: "";
     position: absolute;
