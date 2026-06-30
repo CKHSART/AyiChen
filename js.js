@@ -191,8 +191,8 @@ function show(text) {
             el.style.display = 'block';
         });
     }
-    triggerFadeIn("ansbox","block");
-    triggerFadeIn("cactusesbox","grid");
+    //triggerFadeIn("ansbox","block");
+    //triggerFadeIn("cactusesbox","grid");
 }
 
 function getEnvironmentText(tempStr) {
