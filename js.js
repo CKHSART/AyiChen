@@ -162,7 +162,7 @@ function prepintro() {
         });
     }
     
-    document.querySelectorAll('.combinationbBtn').forEach((el) => {
+    document.querySelectorAll('.combinationBtn').forEach((el) => {
         if (el.id == 'combinationBtn_all') {
             el.classList.add("combinationBtnChoosed");
         } else {
@@ -173,7 +173,7 @@ function prepintro() {
 }
 
 function prepCombinationBtn() {
-    document.querySelectorAll('.combinationbBtn').forEach((el) => {
+    document.querySelectorAll('.combinationBtn').forEach((el) => {
         el.style.display = 'none';
     });
     
@@ -181,7 +181,7 @@ function prepCombinationBtn() {
     console.log("keys:");
     console.log(key_0.split(""));
     key_0.split("").forEach((chr) => {
-        document.getElementById("combinationbBtn_" + chr).style.display = 'block';
+        document.getElementById("combinationBtn_" + chr).style.display = 'block';
     });
     
     let key = document.getElementById("key").innerHTML;
@@ -209,7 +209,7 @@ function show(text) {
     if (text == "all") {
         prepintro();
     } else {
-        document.querySelectorAll('.combinationbBtn').forEach((el) => {
+        document.querySelectorAll('.combinationBtn').forEach((el) => {
             if (el.id == 'combinationBtn_'+text) {
                 el.classList.add("contBtn");
             } else {
