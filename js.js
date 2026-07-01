@@ -172,6 +172,35 @@ function prepintro() {
 
 }
 
+function prepCombinationBtn() {
+    document.querySelectorAll('.combinationbBtn').forEach((el) => {
+        el.style.display = 'none';
+    });
+    
+    let key_0 = document.getElementById("show").innerHTML;
+    console.log("keys:");
+    console.log(key_0.split(""));
+    key_0.split("").forEach((chr) => {
+        document.getElementById("combinationbBtn_" + chr).style.display = 'block';
+    });
+    
+    let key = document.getElementById("key").innerHTML;
+    if (key.length == 6) {
+        let key_1 = (document.getElementById("show2pot").innerHTML).slice(-2);
+        key_1.split("").forEach((chr,i) => {
+            document.getElementById("potType_"+ i + chr).style.display = 'block';
+        });
+    }
+    
+    document.querySelectorAll('.combinationbBtn').forEach((el) => {
+        if (el.id == 'combinationBtn_all') {
+            el.classList.add("combinationBtnChoosed");
+        } else {
+            el.classList.remove("combinationBtnChoosed");
+        }
+    });
+}
+
 function show(text) {
     document.querySelectorAll('.cactusItem').forEach((el) => {
         el.style.display = 'none';
@@ -316,6 +345,7 @@ function change(a) {
         show_element.innerHTML = matchPlantType_1(temp);
         showpot_element.innerHTML = "未選擇";
         prepintro();
+        prepCombinationBtn();
 
         triggerFadeIn("ansbox","block");
         triggerFadeIn("cactusesbox","grid");
@@ -334,6 +364,7 @@ function change(a) {
         
         console.log(show2pot_element.innerHTML);
         prepintro();
+        prepCombinationBtn();
 
         triggerFadeIn("ansbox","block");
         triggerFadeIn("cactusesbox","grid");
