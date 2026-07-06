@@ -462,6 +462,7 @@ function prev() {
         document.getElementById(l - 1).hidden = false;
         document.getElementById("ansbox").style.display = 'none';
         document.getElementById("cactusesbox").style.display = 'none';
+        document.getElementById("contbtn").style.display = 'none';
     } else {
         //預設
         document.getElementById(l).hidden = true;
