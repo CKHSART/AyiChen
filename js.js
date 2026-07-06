@@ -218,13 +218,6 @@ function show(text) {
     if (text == "all") {
         prepintro();
     } else {
-        document.querySelectorAll('.combinationBtn').forEach((el) => {
-            if (el.id == 'combinationBtn_'+text) {
-                el.classList.add("combinationBtnChoosed");
-            } else {
-                el.classList.remove("combinationBtnChoosed");
-            }
-        });
         document.querySelectorAll('.' + text).forEach((el) => {
             el.style.display = 'block';
         });
@@ -241,6 +234,13 @@ function show(text) {
             });
         }
     }
+    document.querySelectorAll('.combinationBtn').forEach((el) => {
+        if (el.id == 'combinationBtn_'+text) {
+            el.classList.add("combinationBtnChoosed");
+        } else {
+            el.classList.remove("combinationBtnChoosed");
+        }
+    });
     //triggerFadeIn("ansbox","block");
     //triggerFadeIn("cactusesbox","grid");
 }
