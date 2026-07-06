@@ -448,9 +448,9 @@ function openIntroBox(i) {
     const myModal = document.getElementById('introBox');
     const body = document.body;
     prepIntroBox(i);
-    dialog.onclick = function(event) {
+    myModal.onclick = function(event) {
         // 取得 dialog 實體方塊的四個邊界座標
-        const rect = dialog.getBoundingClientRect();
+        const rect = myModal.getBoundingClientRect();
         
         // 判斷滑鼠點擊的位置是否在 dialog 實體方塊外面
         const isClickOutside = (
