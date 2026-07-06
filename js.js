@@ -6,7 +6,8 @@ function constructIntro() {
                 header: false,          // 第一列作為欄位名稱
                 skipEmptyLines: true,  // 跳過空行
                 complete: function (results) {
-                    const data = results.data;
+                    window.cactusData = results.data;
+                    const data = window.cactusData;
                     console.log("data fetched");
                     let tags = document.getElementById("show").innerHTML;
                     console.log("data length:");
@@ -444,12 +445,87 @@ function prev() {
 function openIntroBox(i) {
     const myModal = document.getElementById('introBox');
     const body = document.body;
+    prepIntroBox(i);
     myModal.showModal(); // 原生方法：自動鎖定背景互動
     body.classList.add('modal-open'); // 鎖定背景滾動
 }
 function closeIntroBox() {
-    const myModal = document.getElementById('myModal');
+    const myModal = document.getElementById('introBox');
     const body = document.body;
     myModal.close(); // 原生方法：關閉視窗
     body.classList.remove('modal-open'); // 解除背景滾動鎖定
+}
+
+prepIntroBox(i) {
+    const data = window.data;
+    const item = data[i];
+    
+    // 2. 建立圖片元素
+    const imageWrapper = document.createElement("div");
+    imageWrapper.className = "imageWrapper";
+    const img = document.createElement("img");
+    img.src = "data:image/webp;base64," + item[15];
+    img.alt = "多肉照片";
+
+    // 3. 建立 intro 容器
+    const introDiv = document.createElement("div");
+    introDiv.className = "intro";
+
+    // 4. 加入標題
+    const name = document.createElement("p");
+    name.innerHTML = "<b>" + item[5] + "</b>";
+    name.style.fontSize = "28px";
+
+    const sciname = document.createElement("p");
+    sciname.style.fontSize = "20px";
+    sciname.innerHTML = '<i>' + item[6] + '</i>';
+    if (item[7] != "") {
+        console.log(i, item[7]);
+        const varname = item[7].split(".");
+        sciname.innerHTML += " " + varname[0] + ". <i>" + varname[1] + "</i>";
+    }
+    if (item[8] != "") {
+        console.log(i, item[8])
+        sciname.innerHTML += " '" + item[8] + "'";
+    }
+    const cls = document.createElement("p");
+    cls.style.fontSize = "20px";
+    cls.innerHTML = item[9];
+    
+    // 5. 加入黑線
+    const divider = document.createElement("div");
+    divider.style.height = "0.5px";
+    divider.style.backgroundColor = "black";
+    divider.style.width = "90%";
+    divider.style.left = "5%";
+    divider.style.position = "absolute";
+    divider.style.display = "block";
+
+    // 6. 加入說明文字
+    const predivbox = document.createElement("div");
+    const pre = document.createElement("pre");
+    pre.textContent = item[10];
+    pre.style.fontSize = "20px";
+    const place = document.createElement("place");
+    place.textContent = (item[0]==1?"A":"")+(item[1]==1?"B":"")+(item[2]==1?"C":"")+(item[3]==1?"D":"")+(item[4]==1?"E":"")+(item[11]==1?"寬":"")+(item[12]==1?"窄":"")+(item[13]==1?"深":"")+(item[14]==1?"淺":"");
+    place.style.color = "red";
+
+    // 7. 組合 intro 裡的元素
+    introDiv.appendChild(name);
+    introDiv.appendChild(sciname);
+    introDiv.appendChild(cls);
+    introDiv.appendChild(divider);
+    predivbox.appendChild(pre);
+    predivbox.appendChild(place);
+    introDiv.appendChild(predivbox);
+
+    // 8. 組合 cactusItem
+    imageWrapper.appendChild(img);
+    cactusDiv.appendChild(imageWrapper);
+    cactusDiv.appendChild(introDiv);
+    console.log(cactusDiv);
+    
+
+    document.getElementById("introBox").replaceChildren();
+    document.getElementById("introBox").appendChild(cactusDiv);
 }
