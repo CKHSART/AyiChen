@@ -73,7 +73,7 @@ h2 {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, afr));
+    grid-template-columns: repeat(3, 1fr));
     gap: 10px;
 }
 
