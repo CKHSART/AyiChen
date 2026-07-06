@@ -103,7 +103,7 @@ function constructIntro() {
                         place.style.color = "red";
                         const introBtn = document.createElement("button");
                         introBtn.textContent = "開啟介紹";
-                        introBtn.onclick = "openIntroBox("+i+")";
+                        introBtn.onclick = () => openIntroBox(i);
 
                         // 7. 組合 intro 裡的元素
                         introDiv.appendChild(name);
@@ -282,7 +282,7 @@ function matchPlantType_1(temp) {
 }
 
 function matchPlantType_2(temp) {
-    return (temp.slice(4,5) === "1" ? "深" : "淺") + (temp.slice(5,6) === "1" ? "寬" : "窄");
+    return (temp.slice(4,5) === "1" ? "寬" : "窄") + (temp.slice(5,6) === "1" ? "深" : "淺");
 }
 
 function triggerFadeIn(id, displayType) {
