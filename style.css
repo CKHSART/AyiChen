@@ -73,7 +73,7 @@ h2 {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 3fr));
+    grid-template-columns: repeat(3, afr));
     gap: 10px;
 }
 
@@ -309,4 +309,11 @@ button:hover::before {
 body.modal-open {
   overflow: hidden;
   overscroll-behavior: none;
+}
+
+@media (min-width: 768px) {
+    .container {
+        /* 允許自動塞滿，每欄最少 200px */
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
 }
