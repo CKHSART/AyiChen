@@ -185,11 +185,20 @@ button:hover::before {
     cursor: pointer;
 }
 
+/*
 .cactusItem:hover .intro {
     opacity: 1;
 }
+*/
+
 .cactusItem:hover .imageWrapper {
-    opacity: 0.8;
+    opacity: 0.6;
+}
+.cactusItem:hover .nameDiv {
+    opacity: 1;
+}
+.cactusItem:hover .enviromentDiv {
+    opacity: 1;
 }
 
 
