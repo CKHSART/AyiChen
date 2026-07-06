@@ -330,6 +330,7 @@ function change(a) {
         if (temp.slice(-1,) == "3") {
             showAllIntro();
             show_element.innerHTML = "ABCDE";
+            const showpot_element = document.getElementById("showpot");
             showpot_element.innerHTML = "";
             prepCombinationBtn();
     
