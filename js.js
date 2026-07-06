@@ -442,7 +442,7 @@ function prev() {
 }
 
 function openIntroBox(i) {
-    const myModal = document.getElementById('myModal');
+    const myModal = document.getElementById('introBox');
     const body = document.body;
     myModal.showModal(); // 原生方法：自動鎖定背景互動
     body.classList.add('modal-open'); // 鎖定背景滾動
