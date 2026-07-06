@@ -287,11 +287,16 @@ button:hover::before {
 
 /* 自訂跳出視窗的樣式 */
 .custom-modal {
-  border: none;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  padding: 20px;
-  text-align: center;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    text-align: center;
+    
+    width: 90%;
+    height: 90%;
+    max-width: 600px;
+    max-height: 600px;
 }
 
 /* 原生 dialog 的遮罩（遮蔽背景並防止點擊互動） */
