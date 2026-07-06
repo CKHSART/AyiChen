@@ -101,6 +101,9 @@ function constructIntro() {
                         const place = document.createElement("place");
                         place.textContent = (item[0]==1?"A":"")+(item[1]==1?"B":"")+(item[2]==1?"C":"")+(item[3]==1?"D":"")+(item[4]==1?"E":"")+(item[11]==1?"寬":"")+(item[12]==1?"窄":"")+(item[13]==1?"深":"")+(item[14]==1?"淺":"");
                         place.style.color = "red";
+                        const introBtn = document.createElement("button");
+                        introBtn.textContent = "開啟介紹";
+                        introBtn.onclick = "openIntroBox("+i+")";
 
                         // 7. 組合 intro 裡的元素
                         introDiv.appendChild(name);
@@ -109,6 +112,7 @@ function constructIntro() {
                         introDiv.appendChild(divider);
                         predivbox.appendChild(pre);
                         predivbox.appendChild(place);
+                        predivbox.appendChild(introBtn);
                         introDiv.appendChild(predivbox);
 
                         // 8. 組合 cactusItem
@@ -435,4 +439,17 @@ function prev() {
         }
     }
     document.getElementById("showplace").innerHTML = getEnvironmentText(key_element.innerHTML);
+}
+
+function openIntroBox(i) {
+    const myModal = document.getElementById('myModal');
+    const body = document.body;
+    myModal.showModal(); // 原生方法：自動鎖定背景互動
+    body.classList.add('modal-open'); // 鎖定背景滾動
+}
+function closeIntroBox() {
+    const myModal = document.getElementById('myModal');
+    const body = document.body;
+    myModal.close(); // 原生方法：關閉視窗
+    body.classList.remove('modal-open'); // 解除背景滾動鎖定
 }
