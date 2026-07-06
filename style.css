@@ -194,10 +194,10 @@ button:hover::before {
 .cactusItem:hover .imageWrapper {
     opacity: 0.6;
 }
-.cactusItem:hover .nameDiv {
+.cactusItem:hover .nameBox {
     opacity: 1;
 }
-.cactusItem:hover .enviromentDiv {
+.cactusItem:hover .enviromentBox {
     opacity: 1;
 }
 
