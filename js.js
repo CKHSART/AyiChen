@@ -62,6 +62,7 @@ function constructIntro() {
                         img.src = "data:image/webp;base64," + item[15];
                         img.alt = "多肉照片";
 
+                        /*
                         // 3. 建立 intro 容器
                         const introDiv = document.createElement("div");
                         introDiv.className = "intro";
@@ -117,11 +118,12 @@ function constructIntro() {
                         predivbox.appendChild(place);
                         predivbox.appendChild(introBtn);
                         introDiv.appendChild(predivbox);
+                        */
 
-                        // 8. 組合 cactusItem
                         imageWrapper.appendChild(img);
                         cactusDiv.appendChild(imageWrapper);
-                        cactusDiv.appendChild(introDiv);
+                        cactusDiv.onclick = () => openIntroBox(i);
+                        //cactusDiv.appendChild(introDiv);
                         console.log(cactusDiv);
                         
                         // 9. 加到頁面中
@@ -183,6 +185,8 @@ function prepCombinationBtn() {
     document.querySelectorAll('.combinationBtn').forEach((el) => {
         el.style.display = 'none';
     });
+
+    document.getElementById("combinationBtn_all").style.display = 'block';
     
     let key_0 = document.getElementById("show").innerHTML;
     console.log("keys:");
@@ -218,9 +222,9 @@ function show(text) {
     } else {
         document.querySelectorAll('.combinationBtn').forEach((el) => {
             if (el.id == 'combinationBtn_'+text) {
-                el.classList.add("contBtn");
+                el.classList.add("combinationBtnChoosed");
             } else {
-                el.classList.remove("contBtn");
+                el.classList.remove("combinationBtnChoosed");
             }
         });
         document.querySelectorAll('.' + text).forEach((el) => {
