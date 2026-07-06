@@ -285,3 +285,23 @@ button:hover::before {
   visibility: visible;
 }
 
+/* 自訂跳出視窗的樣式 */
+.custom-modal {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  text-align: center;
+}
+
+/* 原生 dialog 的遮罩（遮蔽背景並防止點擊互動） */
+.custom-modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px); /* 讓背景稍微模糊，增加視覺焦點 */
+}
+
+/* 鎖定背景視窗不能滑動 */
+body.modal-open {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
