@@ -158,36 +158,32 @@ function constructIntro() {
 
 function prepintro() {
     document.querySelectorAll('.cactusItem').forEach((el) => {
-        el.style.display = 'none';
+        el.style.display = 'block';
     });
-    
-    let key_0 = document.getElementById("show").innerHTML;
+
+    let list_0 = ["A", "B", "C", "D", "E"];
+    let key_0 = document.getElementById("show").innerHTML.split("");
     console.log("keys:");
     console.log(key_0.split(""));
-    key_0.split("").forEach((chr) => {
-        document.querySelectorAll('.' + chr).forEach((el) => {
-            el.style.display = 'block';
-        });
+    list_0.forEach((chr) => {
+        if (!key_0.includes(chr)){
+            document.querySelectorAll('.'+chr).forEach((el) => {el.style.display = 'none';});
+        }
     });
+    
     
     let key = document.getElementById("key").innerHTML;
     if (key.length == 6) {
-        let key_1 = (document.getElementById("show2pot").innerHTML).slice(-2);
-        key_1.split("").forEach((chr,i) => {
-            document.querySelectorAll('.potType_' + i + (chr-1)).forEach((el) => {
-                el.style.display = 'block';
-            });
+        let list_1 = ["00", "01", "10", "11"];
+        let key_1 = (document.getElementById("show2pot").innerHTML).slice(-2).split("");
+        let list_key_1 = [];
+        key_1.forEach((chr,i) => {list_key_1.push(i.toString+(chr-1).toString);});
+        list_1.forEach((text) => {
+            if (!list_key_1.includes(text)) {
+                document.querySelectorAll(".potType_"+text).forEach((el) => {el.style.display = 'none'});
+            }
         });
     }
-    
-    document.querySelectorAll('.combinationBtn').forEach((el) => {
-        if (el.id == 'combinationBtn_all') {
-            el.classList.add("combinationBtnChoosed");
-        } else {
-            el.classList.remove("combinationBtnChoosed");
-        }
-    });
-
 }
 
 function prepCombinationBtn() {
@@ -203,14 +199,6 @@ function prepCombinationBtn() {
     key_0.split("").forEach((chr) => {
         document.getElementById("combinationBtn_" + chr).style.display = 'block';
     });
-    
-    let key = document.getElementById("key").innerHTML;
-    if (key.length == 6) {
-        let key_1 = (document.getElementById("show2pot").innerHTML).slice(-2);
-        key_1.split("").forEach((chr,i) => {
-            document.getElementById("combinationBtn_potType_"+ i + (chr-1)).style.display = 'block';
-        });
-    }
     
     document.querySelectorAll('.combinationbBtn').forEach((el) => {
         if (el.id == 'combinationBtn_all') {
@@ -239,6 +227,18 @@ function show(text) {
         document.querySelectorAll('.' + text).forEach((el) => {
             el.style.display = 'block';
         });
+        let key = document.getElementById("key").innerHTML;
+        if (key.length == 6) {
+            let list_1 = ["00", "01", "10", "11"];
+            let key_1 = (document.getElementById("show2pot").innerHTML).slice(-2).split("");
+            let list_key_1 = [];
+            key_1.forEach((chr,i) => {list_key_1.push(i.toString+(chr-1).toString);});
+            list_1.forEach((text) => {
+                if (!list_key_1.includes(text)) {
+                    document.querySelectorAll(".potType_"+text).forEach((el) => {el.style.display = 'none'});
+                }
+            });
+        }
     }
     //triggerFadeIn("ansbox","block");
     //triggerFadeIn("cactusesbox","grid");
