@@ -1,5 +1,3 @@
-console.log(114514);
-
 function constructIntro() {
     fetch("./cactus_data.csv")
         .then((res) => res.text())
