@@ -471,7 +471,6 @@ function prepIntroBox(i) {
 
     // 3. 建立 intro 容器
     const introDiv = document.createElement("div");
-    introDiv.className = "intro";
 
     // 4. 加入標題
     const name = document.createElement("p");
