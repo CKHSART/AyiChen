@@ -120,8 +120,17 @@ function constructIntro() {
                         introDiv.appendChild(predivbox);
                         */
 
+                        const nameDiv = document.createElement("div");
+                        nameDiv.classList.add("nameBox");
+                        nameDiv.innerHTML = "<b>" + item[5] + "</b>";
+                        const enviromentDiv = document.createElement("div");
+                        enviromentDiv.classList.add("enviromentBox");
+                        enviromentDiv.innerHTML = (item[0]==1?"A":"")+(item[1]==1?"B":"")+(item[2]==1?"C":"")+(item[3]==1?"D":"")+(item[4]==1?"E":"")+(item[11]==1?"寬":"")+(item[12]==1?"窄":"")+(item[13]==1?"深":"")+(item[14]==1?"淺":"");
+
                         imageWrapper.appendChild(img);
                         cactusDiv.appendChild(imageWrapper);
+                        cactusDiv.appendChild(nameDiv);
+                        cactusDiv.appendChild(enviromentDiv);
                         cactusDiv.onclick = () => openIntroBox(i);
                         //cactusDiv.appendChild(introDiv);
                         console.log(cactusDiv);
