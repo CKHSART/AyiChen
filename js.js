@@ -257,7 +257,7 @@ function getEnvironmentText(tempStr) {
     let pref = "";
     tempStr.split("").forEach((i, j) => {
         if (config[j] && config[j][parseInt(i) - 1]) {
-            pref += ">" + config[j][parseInt(i) - 1];
+            pref += (j==0?"":">") + config[j][parseInt(i) - 1];
         }
     });
     return pref;
