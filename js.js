@@ -156,6 +156,13 @@ function constructIntro() {
         });
 }
 
+function showAllIntro() {
+    document.querySelectorAll('.cactusItem').forEach((el) => {
+        el.style.display = 'block';
+    });
+}
+
+
 function prepintro() {
     document.querySelectorAll('.cactusItem').forEach((el) => {
         el.style.display = 'block';
@@ -163,8 +170,6 @@ function prepintro() {
 
     let list_0 = ["A", "B", "C", "D", "E"];
     let key_0 = document.getElementById("show").innerHTML.split("");
-    console.log("keys:");
-    console.log(key_0.split(""));
     list_0.forEach((chr) => {
         if (!key_0.includes(chr)){
             document.querySelectorAll('.'+chr).forEach((el) => {el.style.display = 'none';});
@@ -194,8 +199,6 @@ function prepCombinationBtn() {
     document.getElementById("combinationBtn_all").style.display = 'block';
     
     let key_0 = document.getElementById("show").innerHTML;
-    console.log("keys:");
-    console.log(key_0.split(""));
     key_0.split("").forEach((chr) => {
         document.getElementById("combinationBtn_" + chr).style.display = 'block';
     });
@@ -326,7 +329,18 @@ function change(a) {
     if (l === 1) {
         triggerFadeIn("contbtn","flex");
         document.getElementById('0').hidden = true;
-        document.getElementById('1').hidden = false;
+        if (temp.slice(-1,) == "3") {
+            showAllIntro();
+            show_element.innerHTML = "ABCDE";
+            showpot_element.innerHTML = "";
+            prepCombinationBtn();
+    
+            triggerFadeIn("ansbox","block");
+            triggerFadeIn("cactusesbox","grid");
+            return;
+        } else{
+            document.getElementById('1').hidden = false;
+        }
         return;
     }
     
@@ -341,7 +355,7 @@ function change(a) {
         document.getElementById("22").hidden = true;
 
         //「無窗」直接補到長度4
-        if (temp.slice(-1,) == 2) {
+        if (temp.slice(-1,) == "2") {
             show_element.innerHTML = "A";
             key_element.innerHTML += "5";
             showplace_element.innerHTML = getEnvironmentText(temp);
@@ -363,7 +377,7 @@ function change(a) {
         document.getElementById('4').hidden = true;
         showpot_element = document.getElementById("showpot");
         show_element.innerHTML = matchPlantType_1(temp);
-        showpot_element.innerHTML = "未選擇";
+        showpot_element.innerHTML = "";
         prepintro();
         prepCombinationBtn();
 
@@ -441,6 +455,11 @@ function prev() {
         document.getElementById("ansbox").style.display = 'none';
         document.getElementById("cactusesbox").style.display = 'none';
     } else if (l == 5 && temp.slice(-1) == '3') {
+        key_element.innerHTML = temp.slice(0, -1);
+        document.getElementById(l - 1).hidden = false;
+        document.getElementById("ansbox").style.display = 'none';
+        document.getElementById("cactusesbox").style.display = 'none';
+    } else if (l == 1 && temp.slice(-1) == '3') {
         key_element.innerHTML = temp.slice(0, -1);
         document.getElementById(l - 1).hidden = false;
         document.getElementById("ansbox").style.display = 'none';
