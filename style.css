@@ -312,7 +312,7 @@ body.modal-open {
 }
 
 @media (min-width: 768px) {
-    .container {
+    .grid-container {
         /* 允許自動塞滿，每欄最少 200px */
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
