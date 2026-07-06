@@ -456,7 +456,7 @@ function closeIntroBox() {
     body.classList.remove('modal-open'); // 解除背景滾動鎖定
 }
 
-prepIntroBox(i) {
+function prepIntroBox(i) {
     const data = window.data;
     const item = data[i];
     
