@@ -328,15 +328,15 @@ body.modal-open {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 10px;
+    height: 20%;
+    padding: 25% 0%;
     box-sizing: border-box;
     color: white;
-    font-size: 20px;
+    font-size: 50cqh;
     text-align: center;
     opacity: 0;
     transition: all 0.3s ease;
     overflow-wrap: break-word;
-    max-height: 20%;
     overflow-y: auto; 
 }
 
@@ -345,15 +345,15 @@ body.modal-open {
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 10px;
+    height: 20%;
+    padding: 25% 0%;
     box-sizing: border-box;
     color: white;
-    font-size: 20px;
+    font-size: 50cqh;
     text-align: center;
     opacity: 0;
     transition: all 0.3s ease;
     overflow-wrap: break-word;
-    max-height: 20%;
     overflow-y: auto; 
 }
 
