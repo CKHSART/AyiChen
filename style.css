@@ -193,7 +193,7 @@ button:hover::before {
 }
 
 
-
+/*
 .intro {
     position: absolute;
     bottom: 0;
@@ -209,9 +209,10 @@ button:hover::before {
     transition: all 0.3s ease;
     border-radius: 8px;
     overflow-wrap: break-word;
-    max-height: 80%;       /* 限制最高只佔父層的 80%，避免文字把整個畫面蓋滿 */
+    max-height: 80%;
     overflow-y: auto; 
 }
+
 .intro pre{
     display:block;
     width: 100%;
@@ -219,6 +220,7 @@ button:hover::before {
     box-sizing: border-box;
     border-radius: 8px;
 }
+*/
 
 .imageWrapper{
     background-color: transparent;
@@ -310,6 +312,40 @@ button:hover::before {
 body.modal-open {
   overflow: hidden;
   overscroll-behavior: none;
+}
+
+.nameBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+    overflow-wrap: break-word;
+    max-height: 20%;
+    overflow-y: auto; 
+}
+
+.enviromentBox {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+    overflow-wrap: break-word;
+    max-height: 20%;
+    overflow-y: auto; 
 }
 
 @media (min-width: 768px) {
