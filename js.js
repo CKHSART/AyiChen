@@ -448,6 +448,23 @@ function openIntroBox(i) {
     const myModal = document.getElementById('introBox');
     const body = document.body;
     prepIntroBox(i);
+    dialog.onclick = function(event) {
+        // 取得 dialog 實體方塊的四個邊界座標
+        const rect = dialog.getBoundingClientRect();
+        
+        // 判斷滑鼠點擊的位置是否在 dialog 實體方塊外面
+        const isClickOutside = (
+            event.clientX < rect.left ||
+            event.clientX > rect.right ||
+            event.clientY < rect.top ||
+            event.clientY > rect.bottom
+        );
+        
+        // 如果點在外面，就執行關閉
+        if (isClickOutside) {
+            closeIntroBox();
+        }
+    };
     myModal.showModal(); // 原生方法：自動鎖定背景互動
     body.classList.add('modal-open'); // 鎖定背景滾動
 }
