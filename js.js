@@ -522,12 +522,8 @@ function prepIntroBox(i) {
     introDiv.appendChild(predivbox);
 
     // 8. 組合 cactusItem
-    imageWrapper.appendChild(img);
-    cactusDiv.appendChild(imageWrapper);
-    cactusDiv.appendChild(introDiv);
-    console.log(cactusDiv);
-    
-
-    document.getElementById("introBox").replaceChildren();
-    document.getElementById("introBox").appendChild(cactusDiv);
+    const element_introBox = document.getElementById("introBox");
+    element_introBox.replaceChildren();
+    element_introBox.appendChild(imageWrapper);
+    element_introBox.appendChild(introDiv);
 }
