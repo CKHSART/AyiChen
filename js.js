@@ -459,7 +459,7 @@ function closeIntroBox() {
 }
 
 function prepIntroBox(i) {
-    const data = window.data;
+    const data = window.cactusData;
     const item = data[i];
     
     // 2. 建立圖片元素
