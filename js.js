@@ -156,7 +156,7 @@ function prepintro() {
     if (key.length == 6) {
         let key_1 = (document.getElementById("show2pot").innerHTML).slice(-2);
         key_1.split("").forEach((chr,i) => {
-            document.querySelectorAll('.potType_' + i + chr).forEach((el) => {
+            document.querySelectorAll('.potType_' + i + (chr-1)).forEach((el) => {
                 el.style.display = 'block';
             });
         });
@@ -188,8 +188,7 @@ function prepCombinationBtn() {
     if (key.length == 6) {
         let key_1 = (document.getElementById("show2pot").innerHTML).slice(-2);
         key_1.split("").forEach((chr,i) => {
-            console.log("combinationBtn_potType_"+ i + chr);
-            document.getElementById("combinationBtn_potType_"+ i + chr).style.display = 'block';
+            document.getElementById("combinationBtn_potType_"+ i + (chr-1)).style.display = 'block';
         });
     }
     
