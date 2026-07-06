@@ -521,6 +521,7 @@ function prepIntroBox(i) {
     introDiv.appendChild(predivbox);
 
     // 8. 組合 cactusItem
+    imageWrapper.appendChild(img);
     const element_introBox = document.getElementById("introBox");
     element_introBox.replaceChildren();
     element_introBox.appendChild(imageWrapper);
