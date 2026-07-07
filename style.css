@@ -128,12 +128,12 @@ button:hover {
     background-color: var(--color2);
 }
 
-.combinationBtnChoosed button {
+.combinationBtnChoosed {
     color: var(--color2);
     border: 2px solid var(--color2);
 }
 
-.combinationBtnChoosed button:hover {
+.combinationBtnChoosed:hover {
     color: var(--color0);
     background-color: var(--color2);
 }
