@@ -215,6 +215,7 @@ function prepintro() {
             console.log("show "+chr);
         });
     }
+    prepClass();
 }
 
 function prepCombinationBtn() {
@@ -272,6 +273,7 @@ function show(text) {
     });
     //triggerFadeIn("ansbox","block");
     //triggerFadeIn("cactusesbox","grid");
+    prepClass();
 }
 
 function getEnvironmentText(tempStr) {
