@@ -245,11 +245,11 @@ function prepCombinationBtn() {
         el.style.display = 'none';
     });
 
-    document.getElementById("combinationBtn_all").style.display = 'block';
+    document.getElementById("combinationBtn_all").style.display = 'inline-block';
     
     let key_0 = document.getElementById("show").innerHTML;
     key_0.split("").forEach((chr) => {
-        document.getElementById("combinationBtn_" + chr).style.display = 'block';
+        document.getElementById("combinationBtn_" + chr).style.display = 'inline-block';
     });
     
     document.querySelectorAll('.combinationBtn').forEach((el) => {
