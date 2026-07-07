@@ -30,9 +30,6 @@ body {
 }
 
 header {
-    display: flex; /* 讓 Logo 和導覽列並排 */
-    justify-content: space-between; /* 兩側對齊 */
-    align-items: center; /* 上下垂直置中 */
     padding: 15px 30px;
     background-color: var(--color0);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -92,18 +89,24 @@ details summary {
 }
 
 .flex-container-top {
+    display: flex;
     flex-direction: column;
     width: 100%;
+    flex: flex-start;
 }
 .img-logo-top {
-    width: 50%;
+    width: 200px;
+    max-width: 50vw;
 }
 .img-logo-bottom {
-    width: 40%;
+    width: 200px;
+    max-width: 40vw;
 }
 .flex-container-bottom {
+    display: flex;
     flex-direction: column;
     width: 100%;
+    align: flex-start;
 }
 
 .container {
@@ -414,16 +417,22 @@ body.modal-open {
     }
     .flex-container-top {
         display: flex;
+        flex-direction: row;
+        justify-content: space-between;
         width: 100%;
     }
     .img-logo-top {
-        width: 30%;
+        width: 200px;
+        max-width: 20%;
     }
     .img-logo-bottom {
-        width: 30%;
+        width: 200px;
+        max-width: 20%;
     }
     .flex-container-bottom {
         display: flex;
+        flex-direction: row;
+        justify-content: space-between;
         width: 100%;
     }
 }
