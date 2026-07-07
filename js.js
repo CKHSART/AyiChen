@@ -176,9 +176,9 @@ function prepClass() {
             count++;
         });
         if (countShow == 0) {
-            cl.style.hidden = true;
+            cl.hidden = true;
         } else {
-            cl.style.hidden = false;
+            cl.hidden = false;
             document.querySelector('.classNum[data-id='+cl.dataset.id+']').innerHTML = '(' count + '/' +countShow + ')';
         }
     });
