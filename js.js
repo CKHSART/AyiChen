@@ -143,6 +143,8 @@ function constructIntro() {
                             const classCactus = document.createElement("div")
                             //classCactus.id = "class_"+item[9];
                             classCactus.classList.add("grid-container");
+                            classCactus.classList.add("classCactus");
+                            classCactus.dataset.id = item[9];
                             classDiv.classList.add("classItem");
                             classDiv.dataset.id = item[9];
                             className.textContent = item[9];
@@ -155,7 +157,7 @@ function constructIntro() {
                             console.log("新增"+item[9]);
                         }
                         //document.getElementById("class_"+item[9]).appendChild(cactusDiv);
-                        document.querySelector('.classItem[data-id='+item[9]+']').appendChild(cactusDiv);
+                        document.querySelector('.classCactus[data-id='+item[9]+']').appendChild(cactusDiv);
                     }
                 }
             });
