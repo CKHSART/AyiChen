@@ -252,7 +252,7 @@ function prepintro() {
             document.querySelector('.combinationBtnSpan[data-id='+chr+']').innerHTML = ' ' + count;
         });
     }
-    document.querySelector('.combinationBtnSpan[data-id="all"]').innerHTML = document.getElementById('cactusesbox').querySelectorAll('.cactusItem[style*="display: block"]').length;
+    document.querySelector('.combinationBtnSpan[data-id="all"]').innerHTML = ' '+document.getElementById('cactusesbox').querySelectorAll('.cactusItem[style*="display: block"]').length;
     prepClass();
 }
 
