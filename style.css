@@ -63,6 +63,10 @@ h2 {
     color: var(--color2);
 }
 
+hr {
+    border: 2px solid var(--color1);
+}
+
 details summary {
     margin: 20px;
     font-size: 24px;
@@ -85,6 +89,12 @@ details summary {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
+}
+
+.grid-container-bottom {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0px;
 }
 
 .container {
@@ -392,5 +402,9 @@ body.modal-open {
     .grid-container {
         /* 允許自動塞滿，每欄最少 200px */
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    .grid-container-bottom {
+        /* 允許自動塞滿，每欄最少 200px */
+        grid-template-columns: repeat(3, 1fr);
     }
 }
