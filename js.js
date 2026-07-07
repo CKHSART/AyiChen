@@ -197,6 +197,7 @@ function prepClass() {
             document.querySelector('.classNum[data-id='+cl.dataset.id+']').innerHTML = ' ( ' + countShow + ' )';
         }
     });
+    openAll();
     //window.classSet.forEach();
 }
 
