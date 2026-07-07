@@ -164,6 +164,19 @@ function constructIntro() {
         });
 }
 
+function closeAll(){
+    const elements_classItem = document.querySelectorAll('.classItem');
+    elements_classItem.forEach((cl) => {
+        cl.open = false;
+    });
+}
+function openAll(){
+    const elements_classItem = document.querySelectorAll('.classItem');
+    elements_classItem.forEach((cl) => {
+        cl.open = true;
+    });
+}
+
 function prepClass() {
     const elements_classItem = document.querySelectorAll('.classItem');
     //const elements_classNum = document.querySelectorAll('.classNum');
