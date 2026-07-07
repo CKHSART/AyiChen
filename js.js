@@ -46,7 +46,7 @@ function constructIntro() {
                         for (let j = 0; j < 5; j++) {
                             if (item[j] != "") {
                                 cactusDiv.classList.add(String.fromCharCode(j + 65));
-                                window.alphabetNum[i]++;
+                                window.alphabetNum[j]++;
                             }
                         }
                         for (let j = 11; j < 15; j++) {
@@ -208,12 +208,12 @@ function showAllIntro() {
     document.querySelectorAll('.cactusItem').forEach((el) => {
         el.style.display = 'block';
     });
-    document.querySelector('.combinationBtnSpan[data-id="all"]').innerHTML = ' ( ' + window.cactusNum + ' )';
-    document.querySelector('.combinationBtnSpan[data-id="A"]').innerHTML = ' ( ' + window.alphabetNum[0] + ' )';
-    document.querySelector('.combinationBtnSpan[data-id="B"]').innerHTML = ' ( ' + window.alphabetNum[1] + ' )';
-    document.querySelector('.combinationBtnSpan[data-id="C"]').innerHTML = ' ( ' + window.alphabetNum[2] + ' )';
-    document.querySelector('.combinationBtnSpan[data-id="D"]').innerHTML = ' ( ' + window.alphabetNum[3] + ' )';
-    document.querySelector('.combinationBtnSpan[data-id="E"]').innerHTML = ' ( ' + window.alphabetNum[4] + ' )';
+    document.querySelector('.combinationBtnSpan[data-id="all"]').innerHTML = ' ' + window.cactusNum + '';
+    document.querySelector('.combinationBtnSpan[data-id="A"]').innerHTML = ' ' + window.alphabetNum[0] + '';
+    document.querySelector('.combinationBtnSpan[data-id="B"]').innerHTML = ' ' + window.alphabetNum[1] + '';
+    document.querySelector('.combinationBtnSpan[data-id="C"]').innerHTML = ' ' + window.alphabetNum[2] + '';
+    document.querySelector('.combinationBtnSpan[data-id="D"]').innerHTML = ' ' + window.alphabetNum[3] + '';
+    document.querySelector('.combinationBtnSpan[data-id="E"]').innerHTML = ' ' + window.alphabetNum[4] + '';
     prepClass();
 }
 
@@ -239,7 +239,7 @@ function prepintro() {
                 }
             });
             console.log("show "+chr+" with "+key_1+" num: "+count);
-            document.querySelector('.combinationBtnSpan[data-id='+chr+']').innerHTML = ' ( ' + count + ' )';
+            document.querySelector('.combinationBtnSpan[data-id='+chr+']').innerHTML = ' ' + count;
         });
     } else {
         key_0.forEach((chr) => {
@@ -249,7 +249,7 @@ function prepintro() {
                 count++;
             });
             console.log("show "+chr+" num: "+count);
-            document.querySelector('.combinationBtnSpan[data-id='+chr+']').innerHTML = ' ( ' + count + ' )';
+            document.querySelector('.combinationBtnSpan[data-id='+chr+']').innerHTML = ' ' + count;
         });
     }
     document.querySelector('.combinationBtnSpan[data-id="all"]').innerHTML = document.getElementById('cactusesbox').querySelectorAll('.cactusItem[style*="display: block"]').length;
