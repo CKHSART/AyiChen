@@ -503,6 +503,7 @@ function openIntroBox(i) {
     myModal.showModal(); // 原生方法：自動鎖定背景互動
     body.classList.add('modal-open'); // 鎖定背景滾動
 }
+
 function closeIntroBox() {
     const myModal = document.getElementById('introBox');
     const body = document.body;
@@ -579,3 +580,13 @@ function prepIntroBox(i) {
     element_introBoxDiv.appendChild(imageWrapper);
     element_introBoxDiv.appendChild(introDiv);
 }
+
+document.addEventListener('keydown', function(event) {
+    // 檢查按下的鍵是否為 ESC (Escape)
+    if (event.key === 'Escape') {
+        const myModal = document.getElementById('introBox');
+        const body = document.body;
+        myModal.close(); // 原生方法：關閉視窗
+        body.classList.remove('modal-open'); // 解除背景滾動鎖定
+    }
+});
