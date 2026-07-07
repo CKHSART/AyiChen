@@ -181,7 +181,7 @@ function prepintro() {
         let list_1 = ["00", "01", "10", "11"];
         let key_1 = (document.getElementById("show2pot").innerHTML).slice(-2).split("");
         let list_key_1 = [];
-        key_1.forEach((chr,i) => {list_key_1.push(i.toString+(chr-1).toString);});
+        key_1.forEach((chr,i) => {list_key_1.push(i.toString()+(chr-1).toString());});
         list_1.forEach((text) => {
             if (!list_key_1.includes(text)) {
                 document.querySelectorAll(".potType_"+text).forEach((el) => {el.style.display = 'none'});
