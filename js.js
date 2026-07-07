@@ -39,7 +39,7 @@ function constructIntro() {
                         console.log(item[5]);
                         
                         // 1. 建立最外層 div
-                        const cactusDiv = document.createElement("div");
+                        const cactusDiv = document.createElement("details");
                         cactusDiv.className = "cactusItem";
                         for (let j = 0; j < 5; j++) {
                             if (item[j] != "") {
@@ -137,7 +137,7 @@ function constructIntro() {
                         if (!classSet.has(item[9])) {
                             classSet.add(item[9]);
                             const classDiv = document.createElement("div");
-                            const className = document.createElement("h3");
+                            const className = document.createElement("summary");
                             const classCactus = document.createElement("div")
                             classCactus.id = "class_"+item[9];
                             classCactus.className = "grid-container"
