@@ -39,7 +39,7 @@ function constructIntro() {
                         console.log(item[5]);
                         
                         // 1. 建立最外層 div
-                        const cactusDiv = document.createElement("details");
+                        const cactusDiv = document.createElement("div");
                         cactusDiv.className = "cactusItem";
                         for (let j = 0; j < 5; j++) {
                             if (item[j] != "") {
@@ -136,7 +136,7 @@ function constructIntro() {
                         // 9. 加到頁面中
                         if (!classSet.has(item[9])) {
                             classSet.add(item[9]);
-                            const classDiv = document.createElement("div");
+                            const classDiv = document.createElement("details");
                             const className = document.createElement("summary");
                             const classCactus = document.createElement("div")
                             classCactus.id = "class_"+item[9];
