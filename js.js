@@ -171,6 +171,7 @@ function prepintro() {
     list_0.forEach((chr) => {
         if (!key_0.includes(chr)){
             document.querySelectorAll('.'+chr).forEach((el) => {el.style.display = 'none';});
+            console.log("hide "+chr);
         }
     });
     
@@ -184,6 +185,7 @@ function prepintro() {
         list_1.forEach((text) => {
             if (!list_key_1.includes(text)) {
                 document.querySelectorAll(".potType_"+text).forEach((el) => {el.style.display = 'none'});
+                console.log("hide "+text);
             }
         });
     }
