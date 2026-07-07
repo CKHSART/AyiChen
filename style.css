@@ -273,6 +273,14 @@ button:hover::before {
     border-radius: 8px;
 }
 
+.imageWrapper img {
+    width: 100%;
+
+    /* 裁切時保持中心位置 */
+    display: block;
+    border-radius: 8px;
+}
+
 .back-to-top {
     /* 定位與層級 */
     position: fixed;
@@ -320,8 +328,8 @@ button:hover::before {
     padding: 20px;
     text-align: center;
     
-    width: 90%;
-    height: 90%;
+    width: 80%;
+    height: 80%;
     max-width: 600px;
     max-height: 600px;
 }
