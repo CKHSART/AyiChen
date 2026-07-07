@@ -509,7 +509,7 @@ function showRoute() {
     const body = document.body;
 
     const imageWrapper = document.createElement("div");
-    imageWrapper.className = "imageWrapper";
+    imageWrapper.className = "imageWrapper2";
     const img = document.createElement("img");
     img.src = "./choose.png";
     img.alt = "路徑照片";
