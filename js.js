@@ -168,14 +168,18 @@ function prepClass() {
     
     elements_classItem.forEach((cl) => {
         let count = 0;
+        let countShow = 0;
         cl.querySelectorAll('.cactusItem').forEach((cac) => {
+            if(cac.style.display == 'block'){
+                countShow++;
+            }
             count++;
         });
-        if (count == 0) {
-            cl.style.display = 'none';
+        if (countShow == 0) {
+            cl.style.hidden = true;
         } else {
-            cl.style.display = 'block';
-            document.querySelector('.classNum[data-id='+cl.dataset.id+']').innerHTML = count;
+            cl.style.hidden = false;
+            document.querySelector('.classNum[data-id='+cl.dataset.id+']').innerHTML = '(' count + '/' +countShow + ')';
         }
     });
     //window.classSet.forEach();
