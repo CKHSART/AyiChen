@@ -203,7 +203,7 @@ function prepCombinationBtn() {
         document.getElementById("combinationBtn_" + chr).style.display = 'block';
     });
     
-    document.querySelectorAll('.combinationbBtn').forEach((el) => {
+    document.querySelectorAll('.combinationBtn').forEach((el) => {
         if (el.id == 'combinationBtn_all') {
             el.classList.add("combinationBtnChoosed");
         } else {
