@@ -154,7 +154,8 @@ function constructIntro() {
                             classDiv.appendChild(classCactus);
                             console.log("新增"+item[9]);
                         }
-                        document.getElementById("class_"+item[9]).appendChild(cactusDiv);
+                        //document.getElementById("class_"+item[9]).appendChild(cactusDiv);
+                        document.querySelector('.classItem[data-id='+item[9]+']').appendChild(cactusDiv);
                     }
                 }
             });
@@ -174,7 +175,7 @@ function prepClass() {
             cl.style.display = 'none';
         } else {
             cl.style.display = 'block';
-            document.querySelector('.classNum[data-id="classNum"]').innerHTML = count;
+            document.querySelector('.classNum[data-id='+cl.dataset.id+']').innerHTML = count;
         }
     });
     //window.classSet.forEach();
