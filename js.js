@@ -181,7 +181,7 @@ function prepClass() {
             cl.hidden = true;
         } else {
             cl.hidden = false;
-            document.querySelector('.classNum[data-id='+cl.dataset.id+']').innerHTML = '(' + count + '/' + countShow + ')';
+            document.querySelector('.classNum[data-id='+cl.dataset.id+']').innerHTML = ' ( ' + count + ' / ' + countShow + ' )';
         }
     });
     //window.classSet.forEach();
@@ -191,6 +191,7 @@ function showAllIntro() {
     document.querySelectorAll('.cactusItem').forEach((el) => {
         el.style.display = 'block';
     });
+    prepClass();
 }
 
 
