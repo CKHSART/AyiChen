@@ -41,6 +41,7 @@ header {
     z-index: 1000;
 }
 
+/*
 ul {
     background-color: transparent;
     list-style-type: none;
@@ -50,11 +51,12 @@ ul {
 }
 
 li {
-    float: center;
+    display: inline-block;
     background-color: transparent;
     padding: 0;
     margin: 0;
 }
+*/
 
 h2 {
     font-size: 24px;
