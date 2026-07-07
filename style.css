@@ -87,7 +87,7 @@ h2 {
 
 button {
     display: block;
-    border: 1px solid var(--color1);
+    border: 2px solid var(--color1);
     padding: 10px;
     margin: 10px;
     font-family: inherit;
@@ -110,7 +110,7 @@ button:hover {
 
 .contbtn {
     color: var(--color2);
-    border: 1px solid var(--color2);
+    border: 2px solid var(--color2);
 }
 
 .contbtn:hover {
@@ -120,7 +120,7 @@ button:hover {
 
 .combinationBtnChoosed button {
     color: var(--color2);
-    border: 1px solid var(--color2);
+    border: 2px solid var(--color2);
 }
 
 .combinationBtnChoosed button:hover {
