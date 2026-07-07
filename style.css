@@ -61,9 +61,11 @@ h2 {
     color: var(--color2);
 }
 
-details {
+details summary {
+    margin: 20px;
     font-size: 24px;
     color: var(--color1);
+    cursor: pointer;
 }
 
 .flexbox {
