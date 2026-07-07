@@ -14,7 +14,7 @@ function constructIntro() {
                     console.log(data.length);
                     console.log("tags:");
                     console.log(tags);
-                    const classSet = new Set();
+                    window.classSet = new Set();
                     for (let i = 1; i < data.length; i++) {
                         /*
                         item
@@ -134,15 +134,21 @@ function constructIntro() {
                         console.log(cactusDiv);
                         
                         // 9. 加到頁面中
-                        if (!classSet.has(item[9])) {
-                            classSet.add(item[9]);
+                        if (!window.classSet.has(item[9])) {
+                            window.classSet.add(item[9]);
                             const classDiv = document.createElement("details");
                             classDiv.open = true;
                             const className = document.createElement("summary");
+                            const classNum = document.createElement("span");
                             const classCactus = document.createElement("div")
-                            classCactus.id = "class_"+item[9];
-                            classCactus.className = "grid-container"
+                            //classCactus.id = "class_"+item[9];
+                            classCactus.classList.add("grid-container");
+                            classDiv.classList.add("classItem");
+                            classDiv.dataset.id = item[9];
                             className.textContent = item[9];
+                            classNum.dataset.id = item[9];
+                            classNum.classList.add("classNum");
+                            className.appendChild(classNum);
                             document.getElementById("cactusesbox").appendChild(classDiv);
                             classDiv.appendChild(className);
                             classDiv.appendChild(classCactus);
@@ -153,6 +159,25 @@ function constructIntro() {
                 }
             });
         });
+}
+
+function prepClass() {
+    const elements_classItem = document.querySelectorAll('.classItem');
+    //const elements_classNum = document.querySelectorAll('.classNum');
+    
+    elements_classItem.foreEach((cl) => {
+        let count = 0;
+        e.querySelectorAll('cactusItem').forEach((cac) => {
+            count++;
+        });
+        if (count == 0) {
+            cl.style.display = 'none';
+        } else {
+            cl.style.display = 'block';
+            document.querySelector('.classNum[data-id="classNum"]').innerHTML = count;
+        }
+    });
+    //window.classSet.forEach();
 }
 
 function showAllIntro() {
