@@ -166,9 +166,9 @@ function prepClass() {
     const elements_classItem = document.querySelectorAll('.classItem');
     //const elements_classNum = document.querySelectorAll('.classNum');
     
-    elements_classItem.foreEach((cl) => {
+    elements_classItem.forEach((cl) => {
         let count = 0;
-        e.querySelectorAll('cactusItem').forEach((cac) => {
+        cl.querySelectorAll('.cactusItem').forEach((cac) => {
             count++;
         });
         if (count == 0) {
