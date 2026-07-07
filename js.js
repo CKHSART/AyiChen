@@ -171,7 +171,8 @@ function prepintro() {
       
     let key = document.getElementById("key").innerHTML;
     if (key.length == 6) {
-        let key_1 = (document.getElementById("show2pot").innerHTML).slice(-2).split("");
+        let key_1 = [];
+        document.getElementById("show2pot").innerHTML.slice(-2).split("").forEach((chr, i) => {key_1.push("potType_"+i.toString()+(chr-1).toString());});
         key_0.forEach((chr) => {
             document.querySelectorAll('.'+chr).forEach((el) => {
                 if (el.classList.contains(key_1[0]) && el.classList.contains(key_1[1])) {
@@ -221,8 +222,8 @@ function show(text) {
         console.log("hide all");       
         let key = document.getElementById("key").innerHTML;
         if (key.length == 6) {
-            let key_1 = (document.getElementById("show2pot").innerHTML).slice(-2).split("");
-
+            let key_1 = [];
+            document.getElementById("show2pot").innerHTML.slice(-2).split("").forEach((chr, i) => {key_1.push("potType_"+i.toString()+(chr-1).toString());});
             document.querySelectorAll('.'+text).forEach((el) => {
                 if (el.classList.contains(key_1[0]) && el.classList.contains(key_1[1])) {
                     el.style.display = 'block';
