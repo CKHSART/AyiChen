@@ -179,7 +179,7 @@ function prepClass() {
             cl.hidden = true;
         } else {
             cl.hidden = false;
-            document.querySelector('.classNum[data-id='+cl.dataset.id+']').innerHTML = '(' count + '/' +countShow + ')';
+            document.querySelector('.classNum[data-id='+cl.dataset.id+']').innerHTML = '(' + count + '/' + countShow + ')';
         }
     });
     //window.classSet.forEach();
