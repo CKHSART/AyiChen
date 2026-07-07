@@ -504,6 +504,42 @@ function openIntroBox(i) {
     body.classList.add('modal-open'); // 鎖定背景滾動
 }
 
+function showRoute() {
+    const myModal = document.getElementById('introBox');
+    const body = document.body;
+
+    const imageWrapper = document.createElement("div");
+    imageWrapper.className = "imageWrapper";
+    const img = document.createElement("img");
+    img.src = "./choose.png";
+    img.alt = "路徑照片";
+
+    imageWrapper.appendChild(img);
+    const element_introBoxDiv = document.getElementById("introBoxDiv");
+    element_introBoxDiv.replaceChildren();
+    element_introBoxDiv.appendChild(imageWrapper);
+    
+    myModal.onclick = function(event) {
+        // 取得 dialog 實體方塊的四個邊界座標
+        const rect = myModal.getBoundingClientRect();
+        
+        // 判斷滑鼠點擊的位置是否在 dialog 實體方塊外面
+        const isClickOutside = (
+            event.clientX < rect.left ||
+            event.clientX > rect.right ||
+            event.clientY < rect.top ||
+            event.clientY > rect.bottom
+        );
+        
+        // 如果點在外面，就執行關閉
+        if (isClickOutside) {
+            closeIntroBox();
+        }
+    };
+    myModal.showModal(); // 原生方法：自動鎖定背景互動
+    body.classList.add('modal-open'); // 鎖定背景滾動
+}
+
 function closeIntroBox() {
     const myModal = document.getElementById('introBox');
     const body = document.body;
