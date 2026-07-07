@@ -222,19 +222,23 @@ function prepintro() {
         let key_1 = [];
         document.getElementById("show2pot").innerHTML.slice(-2).split("").forEach((chr, i) => {key_1.push("potType_"+i.toString()+(chr-1).toString());});
         key_0.forEach((chr) => {
+            let count = 0;
             document.querySelectorAll('.'+chr).forEach((el) => {
                 if (el.classList.contains(key_1[0]) && el.classList.contains(key_1[1])) {
                     el.style.display = 'block';
+                    count++;
                 }
             });
-            console.log("show "+chr+" with "+key_1);
+            console.log("show "+chr+" with "+key_1+" num: "+count);
         });
     } else {
         key_0.forEach((chr) => {
+            let count = 0;
             document.querySelectorAll('.'+chr).forEach((el) => {
                 el.style.display = 'block';
+                count++;
             });
-            console.log("show "+chr);
+            console.log("show "+chr+" num: "+count);
         });
     }
     prepClass();
