@@ -229,12 +229,12 @@ function show(text) {
                     el.style.display = 'block';
                 }
             });
-            console.log("show "+chr+" with "+key_1);
+            console.log("show "+text+" with "+key_1);
         } else {
             document.querySelectorAll('.'+text).forEach((el) => {
                 el.style.display = 'block';
             });
-            console.log("show "+chr);
+            console.log("show "+text);
         }
     }
     document.querySelectorAll('.combinationBtn').forEach((el) => {
