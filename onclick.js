@@ -8,7 +8,9 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-document.getElementById('introBox').onclick = function(event) {
+const myModal = document.getElementById('introBox')
+
+myModal.onclick = function(event) {
     // 取得 dialog 實體方塊的四個邊界座標
     const rect = myModal.getBoundingClientRect();
     
