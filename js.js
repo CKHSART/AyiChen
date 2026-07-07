@@ -137,6 +137,7 @@ function constructIntro() {
                         if (!classSet.has(item[9])) {
                             classSet.add(item[9]);
                             const classDiv = document.createElement("details");
+                            classDiv.open = true;
                             const className = document.createElement("summary");
                             const classCactus = document.createElement("div")
                             classCactus.id = "class_"+item[9];
