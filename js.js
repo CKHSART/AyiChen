@@ -169,19 +169,19 @@ function prepClass() {
     //const elements_classNum = document.querySelectorAll('.classNum');
     
     elements_classItem.forEach((cl) => {
-        let count = 0;
+        //let count = 0;
         let countShow = 0;
         cl.querySelectorAll('.cactusItem').forEach((cac) => {
             if(cac.style.display == 'block'){
                 countShow++;
             }
-            count++;
+            //count++;
         });
         if (countShow == 0) {
             cl.hidden = true;
         } else {
             cl.hidden = false;
-            document.querySelector('.classNum[data-id='+cl.dataset.id+']').innerHTML = ' ( ' + count + ' / ' + countShow + ' )';
+            document.querySelector('.classNum[data-id='+cl.dataset.id+']').innerHTML = ' ( ' + countShow + ' )';
         }
     });
     //window.classSet.forEach();
