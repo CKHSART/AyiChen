@@ -91,10 +91,19 @@ details summary {
     gap: 10px;
 }
 
-.grid-container-bottom {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 0px;
+.flex-container-top {
+    flex-direction: column;
+    width: 100%;
+}
+.img-logo-top {
+    width: 50%;
+}
+.img-logo-bottom {
+    width: 40%;
+}
+.flex-container-bottom {
+    flex-direction: column;
+    width: 100%;
 }
 
 .container {
@@ -403,8 +412,18 @@ body.modal-open {
         /* 允許自動塞滿，每欄最少 200px */
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
-    .grid-container-bottom {
-        /* 允許自動塞滿，每欄最少 200px */
-        grid-template-columns: repeat(3, 1fr);
+    .flex-container-top {
+        display: flex;
+        width: 100%;
+    }
+    .img-logo-top {
+        width: 30%;
+    }
+    .img-logo-bottom {
+        width: 30%;
+    }
+    .flex-container-bottom {
+        display: flex;
+        width: 100%;
     }
 }
