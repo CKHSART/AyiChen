@@ -109,6 +109,10 @@ details summary {
     max-width: 40vw;
 }
 
+.bottom-info { order: 1; }
+.bottom-make { order: 2; }
+.bottom-img { order: 3; }
+
 .flex-container-bottom {
     display: flex;
     flex-direction: column;
@@ -441,6 +445,11 @@ body.modal-open {
         width: 200px;
         max-width: 20vw;
     }
+
+    .bottom-info { order: 2; }
+    .bottom-make { order: 3; }
+    .bottom-img { order: 1; }
+    
     .flex-container-bottom {
         display: flex;
         flex-direction: row;
