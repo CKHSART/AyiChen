@@ -165,6 +165,8 @@ function constructIntro() {
                 }
             });
         });
+    console.log('Finish preparing!');
+    document.getElementById("preparing_text").hidden = false;
 }
 
 function closeAll(){
