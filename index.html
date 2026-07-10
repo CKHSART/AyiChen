@@ -41,7 +41,6 @@
                     <button onclick="change('1')">室內</button>
                     <button onclick="change('2')">室外</button>
                 </div>
-                <!--第二層-->
                 <div id="21" hidden>
                     <button onclick="change('1')">窗台</button>
                     <button onclick="change('2')">無窗</button>
@@ -50,20 +49,17 @@
                     <button onclick="change('3')">陽台</button>
                     <button onclick="change('4')">露臺</button>
                 </div>
-                <!--第三層-->
                 <div id="3" hidden>
                     <button onclick="change('1')">東</button>
                     <button onclick="change('2')">西</button>
                     <button onclick="change('3')">南</button>
                     <button onclick="change('4')">北</button>
                 </div>
-                <!--第四層-->
                 <div id="4" hidden>
                     <button onclick="change('1')">盆口寬(&gt100㎠)</button>
                     <button onclick="change('2')">盆口窄(&lt100㎠)</button>
                     <button onclick="change('3')">略過盆器挑選</button>
                 </div>
-                <!--第四層-->
                 <div id="5" hidden>
                     <button onclick="change('1')">盆身深(&gt12cm)</button>
                     <button onclick="change('2')">盆身淺(&lt12cm)</button>
@@ -80,16 +76,20 @@
             <div id="cactusesbox" class="fadeIn" style="display:none;">
                 <h2>適合種植的多肉品種（<span id="show"></span><span id="showpot"></span>）：</h2>
                 <div class="flexbox">
-                    <button id="combinationBtn_all" class="combinationBtn" onclick="show('all')">全部<span class="combinationBtnSpan" data-id="all"></span></button>
-                    <button id="combinationBtn_A" class="combinationBtn" onclick="show('A')">A<span class="combinationBtnSpan" data-id="A"></button>
-                    <button id="combinationBtn_B" class="combinationBtn" onclick="show('B')">B<span class="combinationBtnSpan" data-id="B"></button>
-                    <button id="combinationBtn_C" class="combinationBtn" onclick="show('C')">C<span class="combinationBtnSpan" data-id="C"></button>
-                    <button id="combinationBtn_D" class="combinationBtn" onclick="show('D')">D<span class="combinationBtnSpan" data-id="D"></button>
-                    <button id="combinationBtn_E" class="combinationBtn" onclick="show('E')">E<span class="combinationBtnSpan" data-id="E"></button>
+                    <div>
+                        <button id="combinationBtn_all" class="combinationBtn" onclick="show('all')">全部<span class="combinationBtnSpan" data-id="all"></span></button>
+                        <button id="combinationBtn_A" class="combinationBtn" onclick="show('A')">A<span class="combinationBtnSpan" data-id="A"></button>
+                        <button id="combinationBtn_B" class="combinationBtn" onclick="show('B')">B<span class="combinationBtnSpan" data-id="B"></button>
+                        <button id="combinationBtn_C" class="combinationBtn" onclick="show('C')">C<span class="combinationBtnSpan" data-id="C"></button>
+                        <button id="combinationBtn_D" class="combinationBtn" onclick="show('D')">D<span class="combinationBtnSpan" data-id="D"></button>
+                        <button id="combinationBtn_E" class="combinationBtn" onclick="show('E')">E<span class="combinationBtnSpan" data-id="E"></button>
+                    </div>
                 </div>
                 <div class="flexbox">
-                    <button onclick="openAll()">展開全部</button>
-                    <button onclick="closeAll()">收合全部</button>
+                    <div>
+                        <button onclick="openAll()">展開全部</button>
+                        <button onclick="closeAll()">收合全部</button>
+                    </div>
                 </div>
             </div>
             <hr>
