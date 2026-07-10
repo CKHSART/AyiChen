@@ -88,12 +88,16 @@ details summary {
     gap: 10px;
 }
 
-.flex-container-top {
+.flex-container-top-computer {
+    display: none;
+}
+.flex-container-top-mobile {
     display: flex;
     flex-direction: column;
     width: 100%;
     flex: flex-start;
 }
+
 .img-logo-top {
     width: 200px;
     max-width: 50vw;
@@ -415,11 +419,14 @@ body.modal-open {
         /* 允許自動塞滿，每欄最少 200px */
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
-    .flex-container-top {
+    .flex-container-top-computer {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         width: 100%;
+    }
+    .flex-container-top-mobile {
+        display: none;
     }
     .img-logo-top {
         width: 200px;
