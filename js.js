@@ -164,10 +164,10 @@ function constructIntro() {
                     }
                 }
             });
+        console.log('Finish preparing!');
+        document.getElementById("preparing_text").hidden = true;
+        document.getElementById("0").hidden = false;   
         });
-    console.log('Finish preparing!');
-    document.getElementById("preparing_text").hidden = true;
-    document.getElementById("0").hidden = false;
 }
 
 function closeAll(){
